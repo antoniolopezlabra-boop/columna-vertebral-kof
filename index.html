@@ -321,8 +321,11 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
 
 .grid2 { margin-top: 24px; display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; }
 .grid3 { margin-top: 24px; display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; }
+.grid4 { margin-top: 24px; display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 14px; }
 .grid-1-2 { margin-top: 24px; display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.35fr); gap: 16px; }
+@media (max-width: 1180px) { .grid4 { grid-template-columns: repeat(2, minmax(0,1fr)); } }
 @media (max-width: 1000px) { .grid2, .grid3, .grid-1-2 { grid-template-columns: 1fr; } }
+@media (max-width: 620px) { .grid4 { grid-template-columns: 1fr; } }
 
 /* barras animadas */
 .bar-rect { transform-box: fill-box; transform-origin: bottom; transform: scaleY(0); transition: transform .9s cubic-bezier(.16,1,.3,1); }
@@ -574,7 +577,7 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
     <div class="hero__band" data-animate data-delay="3">
       <span class="hero__chip"><b>403</b> instancias gestionadas</span>
       <span class="hero__chip"><b>43</b> aplicaciones</span>
-      <span class="hero__chip"><b>16</b> consultores</span>
+      <span class="hero__chip"><b>20</b> consultores</span>
       <span class="hero__chip"><b>7&times;24</b> cobertura</span>
       <span class="hero__chip"><b>6</b> años de indicadores</span>
     </div>
@@ -598,7 +601,7 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
       <div class="hub-divider">Anexo · evidencia y detalle, por si se pregunta</div>
       <button class="hub-card" data-goto="c1"><span class="hub-card__n">A1</span><span class="hub-card__l">El alcance real</span></button>
       <button class="hub-card" data-goto="c2"><span class="hub-card__n">A2</span><span class="hub-card__l">El terreno se movió</span></button>
-      <button class="hub-card" data-goto="c3"><span class="hub-card__n">A3</span><span class="hub-card__l">Tres equipos</span></button>
+      <button class="hub-card" data-goto="c3"><span class="hub-card__n">A3</span><span class="hub-card__l">Cuatro equipos</span></button>
       <button class="hub-card" data-goto="c4"><span class="hub-card__n">A4</span><span class="hub-card__l">TQS</span></button>
       <button class="hub-card" data-goto="c5"><span class="hub-card__n">A5</span><span class="hub-card__l">FTE</span></button>
       <button class="hub-card" data-goto="c6"><span class="hub-card__n">A6</span><span class="hub-card__l">Guardia ME · 7&times;24</span></button>
@@ -668,15 +671,16 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
     <h2 class="claim" data-animate data-delay="1">La complejidad creció. El negocio no la sintió.</h2>
     <p class="lede" data-animate data-delay="2">
       Entre 2021 y 2025 la demanda de servicio creció <strong>+164%</strong> &mdash; de 5,006 a
-      <strong>13,203 actividades al año</strong>. El equipo creció <strong>+20%</strong>: de 10 a 12
-      consultores. Esa diferencia no desapareció. La absorbió la operación, y por eso el usuario final
-      nunca la vio.
+      <strong>13,203 actividades al año</strong>. El equipo de TQS y FTE creció <strong>+20%</strong>:
+      de 10 a 12 consultores. Esa diferencia no desapareció. La absorbió la operación, y por eso el
+      usuario final nunca la vio. Hoy el servicio completo son <strong>20 personas</strong> en cuatro
+      frentes.
     </p>
 
     <div class="stats-grid stats-grid--4" data-animate data-delay="3">
       <div class="stat"><div class="stat__n"><small>+</small><span data-count="164">164</span><small>%</small></div><div class="stat__l">Demanda de servicio</div><div class="stat__d">2021 &rarr; 2025</div></div>
       <div class="stat"><div class="stat__n"><small>+</small><span data-count="20">20</span><small>%</small></div><div class="stat__l">Plantilla</div><div class="stat__d">De 10 a 12 consultores TQS + FTE</div></div>
-      <div class="stat"><div class="stat__n" data-count="1100">1,100</div><div class="stat__l">Actividades por consultor al año</div><div class="stat__d">En 2021 eran 500</div></div>
+      <div class="stat"><div class="stat__n" data-count="1100">1,100</div><div class="stat__l">Actividades por consultor al año</div><div class="stat__d">TQS + FTE &nbsp;·&nbsp; en 2021 eran 500</div></div>
       <div class="stat"><div class="stat__n">7&times;24</div><div class="stat__l">Cobertura continua</div><div class="stat__d">365 días, sin ventana de apagado</div></div>
     </div>
 
@@ -815,7 +819,7 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
       <div class="stat"><div class="stat__n" data-count="1343">1,343</div><div class="stat__l">Actividades al mes en 2026</div><div class="stat__d">Promedio 2025: 1,100</div></div>
       <div class="stat"><div class="stat__n"><small>+</small><span data-count="22">22</span><small>%</small></div><div class="stat__l">Sobre el año récord</div><div class="stat__d">Con ocho meses cerrados</div></div>
       <div class="stat"><div class="stat__n" data-count="34">34</div><div class="stat__l">Sistemas con dueño nombrado</div><div class="stat__d">Cinco carteras TQS nominadas</div></div>
-      <div class="stat"><div class="stat__n" data-count="16">16</div><div class="stat__l">Personas sostienen todo esto</div><div class="stat__d">5 TQS · 6 FTE · 5 Guardia ME, más Archiving</div></div>
+      <div class="stat"><div class="stat__n" data-count="20">20</div><div class="stat__l">Personas sostienen todo esto</div><div class="stat__d">5 TQS · 6 FTE · 5 Guardia ME · 4 Archiving</div></div>
     </div>
 
     <div class="card" data-animate data-delay="4">
@@ -839,12 +843,12 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
       <div class="reason">
         <div class="reason__n">CONOCIMIENTO</div>
         <div class="reason__t">Está nominado, no está documentado</div>
-        <p class="reason__d"><b>34 sistemas TQS</b> repartidos en cinco carteras con dueño, más seis FTE y cinco de guardia. Ese mapeo vive en las personas: reconstruirlo tiene un tiempo que ninguna transición absorbe sin impacto.</p>
+        <p class="reason__d"><b>34 sistemas TQS</b> repartidos en cinco carteras con dueño, más seis de FTE, cinco de guardia y cuatro de Archiving. Ese mapeo vive en las personas: reconstruirlo tiene un tiempo que ninguna transición absorbe sin impacto.</p>
       </div>
       <div class="reason">
         <div class="reason__n">VELOCIDAD</div>
         <div class="reason__t">1,100 actividades por consultor al año</div>
-        <p class="reason__d">Ese rendimiento es producto de años de curva de aprendizaje sobre el ecosistema específico de KOF. No es una cifra de mercado: es lo que se logra cuando ya se conoce el terreno.</p>
+        <p class="reason__d">Es el rendimiento de cada consultor de TQS y FTE. Ese rendimiento es producto de años de curva de aprendizaje sobre el ecosistema específico de KOF. No es una cifra de mercado: es lo que se logra cuando ya se conoce el terreno.</p>
       </div>
       <div class="reason">
         <div class="reason__n">RIESGO</div>
@@ -920,7 +924,7 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
     <div class="anexo-note" data-animate data-delay="3">
       <b>A1 · El alcance real</b> — inventario de instancias, hosts, tecnologías y aplicaciones.<br>
       <b>A2 · El terreno se movió</b> — crecimiento del parque y del catálogo.<br>
-      <b>A3 · Tres equipos</b> — cómo se reparte el servicio.<br>
+      <b>A3 · Cuatro equipos</b> — cómo se reparte el servicio.<br>
       <b>A4 · TQS</b> — volumen anual y mensual, 2021 a 2026, y las cinco carteras nominadas.<br>
       <b>A5 · FTE</b> — actividad, mezcla de trabajo y comparación 2025 contra 2026.<br>
       <b>A6 · Guardia ME</b> — cobertura 7&times;24, alertas y checklists.<br>
@@ -1008,24 +1012,25 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
 </section>
 
 <!-- ==================== ANEXO A3 ==================== -->
-<section class="scene scene--tall" id="c3" data-chapter="Anexo · Tres equipos">
+<section class="scene scene--tall" id="c3" data-chapter="Anexo · Cuatro equipos">
   <div class="scene__inner">
     <div class="kicker" data-animate>Anexo A3 · Quiénes lo sostienen</div>
-    <h2 class="claim" data-animate data-delay="1">Dieciséis personas. Tres frentes. Cero huecos.</h2>
+    <h2 class="claim" data-animate data-delay="1">Veinte personas. Cuatro frentes. Cero huecos.</h2>
     <p class="lede" data-animate data-delay="2">
-      La operación se sostiene con tres equipos complementarios que cubren el ciclo
+      La operación se sostiene con cuatro equipos complementarios que cubren el ciclo
       completo: <strong>TQS</strong> hace la ingeniería del sistema, <strong>FTE</strong>
-      resuelve la demanda del día a día y <strong>Guardia ME</strong> vigila
-      <strong>7&times;24</strong>. Ninguno reemplaza al otro; los tres se relevan.
+      resuelve la demanda del día a día, <strong>Guardia ME</strong> vigila
+      <strong>7&times;24</strong> y <strong>Archiving</strong> sostiene la capacidad de las
+      bases productivas. Ninguno reemplaza al otro; los cuatro se relevan.
     </p>
 
-    <div class="grid3" data-animate data-delay="3">
+    <div class="grid4" data-animate data-delay="3">
       <div class="card team-card">
         <div class="team-card__hd">
           <span class="team-card__n">TQS</span>
           <span class="team-card__c" style="color:var(--rust)">5<small>consultores</small></span>
         </div>
-        <div class="team-card__bar"><i style="width:31%;background:var(--rust)"></i></div>
+        <div class="team-card__bar"><i style="width:25%;background:var(--rust)"></i></div>
         <p class="team-card__d">Technical Quality Support. Dueños técnicos de cada sistema: RFCs, mantenimiento, monitores, RCAs y recomendaciones. La cartera de cada consultor está nominada y documentada.</p>
         <div class="folio__m" style="border:0;padding:0;margin-top:2px">
           <span><b>6,817</b>actividades 2025</span>
@@ -1037,7 +1042,7 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
           <span class="team-card__n">FTE</span>
           <span class="team-card__c" style="color:var(--blue)">6<small>consultores</small></span>
         </div>
-        <div class="team-card__bar"><i style="width:38%;background:var(--blue)"></i></div>
+        <div class="team-card__bar"><i style="width:30%;background:var(--blue)"></i></div>
         <p class="team-card__d">Full Time Equivalent. La primera línea de la demanda: requerimientos de rutina y emergentes, problemas resueltos, indicadores, mensajes SAP y apoyo en implementación de RFCs.</p>
         <div class="folio__m" style="border:0;padding:0;margin-top:2px">
           <span><b>6,386</b>actividades 2025</span>
@@ -1049,11 +1054,23 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
           <span class="team-card__n">Guardia ME</span>
           <span class="team-card__c" style="color:var(--ok)">5<small>consultores</small></span>
         </div>
-        <div class="team-card__bar"><i style="width:31%;background:var(--ok)"></i></div>
+        <div class="team-card__bar"><i style="width:25%;background:var(--ok)"></i></div>
         <p class="team-card__d">Monitoreo Especializado. El turno que no se apaga: atención de alertas y ejecución de checklists sobre los sistemas productivos, todos los días del año.</p>
         <div class="folio__m" style="border:0;padding:0;margin-top:2px">
           <span><b>21,539</b>eventos 2024</span>
           <span><b>7&times;24</b>cobertura</span>
+        </div>
+      </div>
+      <div class="card team-card">
+        <div class="team-card__hd">
+          <span class="team-card__n">Archiving</span>
+          <span class="team-card__c" style="color:var(--amber)">4<small>consultores</small></span>
+        </div>
+        <div class="team-card__bar"><i style="width:20%;background:var(--amber)"></i></div>
+        <p class="team-card__d">Archiving, Base de Datos y Reorganización. Retira datos históricos de las bases productivas y recupera el espacio liberado, para que los sistemas de ECC no se queden sin margen de crecimiento.</p>
+        <div class="folio__m" style="border:0;padding:0;margin-top:2px">
+          <span><b>30.1 TB</b>archivados 2026</span>
+          <span><b>3</b>sistemas ECC</span>
         </div>
       </div>
     </div>
@@ -1061,11 +1078,11 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
     <div class="subhead" data-animate data-delay="4">Cómo evolucionó la plantilla frente al catálogo</div>
     <div class="card" data-animate data-delay="4" style="margin-top:12px">
       <div class="card__t">Consultores y aplicaciones por equipo, 2021 &rarr; 2025</div>
-      <div class="card__sub">Barra = aplicaciones bajo gestión · Punto = consultores asignados</div>
+      <div class="card__sub">Barra = aplicaciones bajo gestión · Punto = consultores asignados. Serie de TQS, FTE y Guardia ME; Archiving se incorpora al alcance en 2026 y aún no tiene serie histórica.</div>
       <div id="chTeams"></div>
     </div>
 
-    <p class="take" data-animate data-delay="5">En cinco años el catálogo del servicio se multiplicó. La plantilla se movió apenas. Los siguientes tres capítulos muestran, equipo por equipo, qué salió de esas manos.</p>
+    <p class="take" data-animate data-delay="5">En cinco años el catálogo del servicio se multiplicó. La plantilla se movió apenas. Los siguientes capítulos muestran, equipo por equipo, qué salió de esas manos.</p>
     <div class="src"><b>Fuente</b> Instancias &amp; BDs SAP · hoja «Indicadores Operación» (2021–2023) &nbsp;·&nbsp; Inventario Operaciones 2025 (2024–abr 2025) &nbsp;·&nbsp; Indicadores Estratégicos TQS y Actividades FTE, diciembre 2025.</div>
   </div>
 </section>
@@ -1407,8 +1424,8 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
 
     <div class="pending" data-animate data-delay="5">
       <b>Pendiente de incorporar</b>
-      La serie <b>Guardia ME 2025&ndash;2026</b>. TQS y FTE ya están al día hasta agosto de 2026;
-      con la guardia incorporada, este capítulo cubre los tres frentes del servicio.
+      La serie <b>Guardia ME 2025&ndash;2026</b>. TQS y FTE ya están al día hasta agosto de 2026 y
+      el detalle de <b>Archiving</b> está en el anexo A10, con corte a junio de 2026.
     </div>
 
     <p class="take" data-animate data-delay="6">El año récord no fue el techo: fue la nueva línea base. Y se está superando con la misma plantilla.</p>
