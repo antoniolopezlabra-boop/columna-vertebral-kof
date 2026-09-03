@@ -605,6 +605,28 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
 .evid .card__read { margin-top: 0; }
 .evid .chart-legend { margin-top: 4px; }
 
+
+/* ============================================================
+   Acciones — lo que el equipo cambio, no solo lo que atendio
+   ============================================================ */
+.accs {
+  margin-top: 16px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px;
+}
+@media (max-width: 1000px) { .accs { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px)  { .accs { grid-template-columns: 1fr; } }
+.acc {
+  border: 1px solid var(--hairline); border-radius: 14px; padding: 16px 17px; background: var(--card);
+}
+.acc__t {
+  font-family: var(--font-display); font-weight: 700; font-size: 14px; line-height: 1.3;
+  color: var(--ink); text-wrap: balance;
+}
+.acc__d { margin-top: 7px; font-size: 12.5px; line-height: 1.55; color: var(--ink-soft); }
+.acc__d b { font-weight: 700; color: var(--ink); }
+.scene--dark .acc { background: var(--d-card); border-color: var(--d-hairline); }
+.scene--dark .acc__t, .scene--dark .acc__d b { color: var(--d-ink); }
+.scene--dark .acc__d { color: var(--d-ink-soft); }
+
 </style>
 </head>
 <body>
@@ -778,7 +800,7 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
         <div class="frente__v">123,861</div>
         <div class="frente__u">Eventos atendidos<br>Acumulado 2021 a 2024</div>
         <div class="frente__t">El turno que no se apaga</div>
-        <p class="frente__d">Vigilancia <b>7&times;24 los 365 días</b>. Filtra el ruido operativo antes de que llegue a alguien del negocio y escala solo lo que de verdad lo requiere.</p>
+        <p class="frente__d">Vigilancia <b>7&times;24 los 365 días</b>. En 2026 rediseñó el monitoreo de SAP en Azure y bajó las alertas de <b>795 a 235 al mes</b> sin perder un solo sistema de cobertura.</p>
         <div class="frente__f"><b>5</b> consultores</div>
       </div>
 
@@ -847,10 +869,10 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
       </div>
       <div class="noh__r">
         <div>
-          <div class="noh__t">Llegó menos ruido al negocio, con más sistemas que vigilar</div>
-          <p class="noh__d">Las alertas escaladas a la guardia bajaron de <b>7,091 a 4,638</b> entre 2021 y 2024, mientras el parque de instancias crecía. Menos ruido no es menos vigilancia: es mejor filtrado.</p>
+          <div class="noh__t">El ruido dejó de llegar a la guardia</div>
+          <p class="noh__d">Las alertas de los sistemas SAP en Azure pasaron de <b>795 en marzo a 235 en mayo de 2026</b>. No fue casualidad: la Guardia ME rediseñó el monitoreo &mdash; sacó los sistemas fuera de operación, apagó las alertas sin valor y marcó las críticas con prioridad. Misma cobertura, menos ruido.</p>
         </div>
-        <div class="noh__v"><div class="noh__n">&minus;35<small>%</small></div><span class="noh__k">Alertas escaladas</span></div>
+        <div class="noh__v"><div class="noh__n">&minus;70<small>%</small></div><span class="noh__k">Alertas mar &rarr; may 2026</span></div>
       </div>
       <div class="noh__r">
         <div>
@@ -1147,7 +1169,7 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
         <div class="team-card__bar"><i style="width:25%;background:var(--ok)"></i></div>
         <p class="team-card__d">Monitoreo Especializado. El turno que no se apaga: atención de alertas y ejecución de checklists sobre los sistemas productivos, todos los días del año.</p>
         <div class="folio__m" style="border:0;padding:0;margin-top:2px">
-          <span><b>21,539</b>eventos 2024</span>
+          <span><b>3,579</b>alertas 2026</span>
           <span><b>7&times;24</b>cobertura</span>
         </div>
       </div>
@@ -1342,8 +1364,8 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
     <p class="lede" data-animate data-delay="2">
       Cinco consultores de Monitoreo Especializado cubren la operación fuera de horario,
       en fin de semana y en día festivo. Entre 2021 y 2024 procesaron
-      <strong>123,861 eventos</strong> — alertas atendidas y checklists ejecutados sobre
-      los sistemas productivos.
+      <strong>123,861 eventos</strong>. En 2026 hicieron algo distinto: además de atender
+      las alertas, <strong>rediseñaron el monitoreo</strong> para que dejaran de llegar las que no servían.
     </p>
 
     <div class="ring-wrap" data-animate data-delay="3">
@@ -1351,18 +1373,60 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
       <div>
         <div class="stats-grid stats-grid--2">
           <div class="stat"><div class="stat__n" data-count="123861">123,861</div><div class="stat__l">Eventos atendidos</div><div class="stat__d">Acumulado 2021&ndash;2024</div></div>
-          <div class="stat"><div class="stat__n" data-count="94115">94,115</div><div class="stat__l">Checklists ejecutados</div><div class="stat__d">Verificación preventiva diaria</div></div>
-          <div class="stat"><div class="stat__n" data-count="29746">29,746</div><div class="stat__l">Alertas gestionadas</div><div class="stat__d">Acumulado 2021&ndash;2024</div></div>
-          <div class="stat"><div class="stat__n"><small>&minus;</small><span data-count="35">35</span><small>%</small></div><div class="stat__l">Alertas 2021 &rarr; 2024</div><div class="stat__d">7,091 &rarr; 4,638 al año</div></div>
+          <div class="stat"><div class="stat__n" data-count="3579">3,579</div><div class="stat__l">Alertas Dynatrace en 2026</div><div class="stat__d">Enero a agosto &nbsp;·&nbsp; SAP en Azure</div></div>
+          <div class="stat"><div class="stat__n">99.8<small>%</small></div><div class="stat__l">Alertas cerradas</div><div class="stat__d">3,573 de 3,579 &nbsp;·&nbsp; ninguna quedó abierta sin dueño</div></div>
+          <div class="stat"><div class="stat__n" data-count="2145">2,145</div><div class="stat__l">Checklists al mes</div><div class="stat__d">Promedio enero&ndash;abril 2026 &nbsp;·&nbsp; 8,578 en el cuatrimestre</div></div>
         </div>
       </div>
     </div>
 
     <div class="card__read" data-animate data-delay="4" style="max-width:900px;margin-top:18px">
-      El anillo son las <b>168 horas de la semana</b>, todas cubiertas. No hay franja sin responsable: la madrugada, el fin de semana y el día festivo tienen el mismo turno asignado que un martes a mediodía. Los <b>123,861 eventos</b> del acumulado son la prueba de que esa cobertura se usa, no de que exista en papel.
+      El anillo son las <b>168 horas de la semana</b>, todas cubiertas. No hay franja sin responsable: la madrugada, el fin de semana y el día festivo tienen el mismo turno asignado que un martes a mediodía. Debajo de ese turno hay <b>124 instancias SAP</b> y <b>340 servidores físicos</b> inventariados uno por uno, con su herramienta de monitoreo y su checklist declarados.
     </div>
 
     <div class="card" data-animate data-delay="5" style="margin-top:18px">
+      <div class="card__t">2026: el año en que el ruido se apagó</div>
+      <div class="card__sub">Alertas Dynatrace de SAP en Azure por mes y por tipo, enero a agosto de 2026</div>
+      <div id="chDyn2026" style="max-width:860px;margin:0 auto"></div>
+      <div class="chart-legend">
+        <span><i style="background:#D14600"></i>Slow disk</span>
+        <span><i style="background:#D42020"></i>CPU saturation</span>
+        <span><i style="background:#FFAE41"></i>Browser monitor outage</span>
+        <span><i style="background:#4995FF"></i>Caída de uso de aplicación</span>
+        <span><i style="background:#6C7385"></i>Otras</span>
+      </div>
+      <div class="card__read">Lo que desaparece en la gráfica no son sistemas: son alertas que nunca debieron sonar. <b>CPU saturation</b> pasó de <b>104 en marzo a cero desde abril</b>, y <b>Browser monitor outage</b> de <b>258 a 3</b>. El pico de agosto es un solo tipo de alerta &mdash; <b>caída de uso de aplicación, 168 de las 407</b> &mdash; ya identificado y en ajuste. Sin él, agosto habría cerrado en 239, la misma línea de junio y julio.</div>
+    </div>
+
+    <div class="subhead" data-animate data-delay="5">Seis cambios que el equipo hizo al monitoreo</div>
+    <div class="accs" data-animate data-delay="5">
+      <div class="acc">
+        <div class="acc__t">Sacar los sistemas fuera de operación de la zona productiva</div>
+        <p class="acc__d">Se reubicaron a otra Management Zone. El tablero de producción quedó <b>solo con sistemas vivos</b>, y dejaron de sonar alertas de equipos que ya nadie usaba.</p>
+      </div>
+      <div class="acc">
+        <div class="acc__t">Apagar las alertas que no aportaban</div>
+        <p class="acc__d">MuleSoft y sistemas no operativos, <b>validado antes con los equipos funcionales y CloudOps</b>. No se apagó nada por conveniencia: se apagó lo que no tenía destinatario.</p>
+      </div>
+      <div class="acc">
+        <div class="acc__t">Marcar la prioridad en la alerta crítica</div>
+        <p class="acc__d">Antes todas las alertas llegaban con el mismo encabezado. Ahora las de alto impacto llegan marcadas y <b>se atienden primero sin tener que leerlas todas</b>.</p>
+      </div>
+      <div class="acc">
+        <div class="acc__t">Rediseñar el tablero de host monitoring</div>
+        <p class="acc__d">Ordenado por consumo de mayor a menor y con <b>semáforo de tres estados</b>. El recurso en riesgo se ve de un vistazo, no se busca.</p>
+      </div>
+      <div class="acc">
+        <div class="acc__t">Evidencia del tablero en cada cambio de turno</div>
+        <p class="acc__d">La guardia envía el estado de los sistemas al iniciar y al cerrar turno. <b>Ningún relevo empieza a ciegas</b>: el turno entrante sabe qué recibió.</p>
+      </div>
+      <div class="acc">
+        <div class="acc__t">Dynatrace en el móvil de la guardia y de los FTE</div>
+        <p class="acc__d">Además del correo y de Teams. La alerta de madrugada <b>llega aunque nadie tenga el equipo abierto</b>.</p>
+      </div>
+    </div>
+
+    <div class="card" data-animate data-delay="6" style="margin-top:20px">
       <div class="card__t">Alertas y checklists por año</div>
       <div class="card__sub">Guardia ME (registrada históricamente como «Guardia BODS»), 2021 &rarr; 2024</div>
       <div id="chGuardia"></div>
@@ -1370,17 +1434,19 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
         <span><i style="background:#FF7E51"></i>Alertas atendidas</span>
         <span><i style="background:#1F9D6B"></i>Checklists ejecutados</span>
       </div>
-      <div class="card__read">Menos alertas sobre un parque que creció no significa menos trabajo: significa menos ruido. Los sistemas se estabilizaron, y esa estabilización la produjo el mismo equipo que atiende las alertas.</div>
+      <div class="card__read">Menos alertas sobre un parque que creció no significa menos trabajo: significa menos ruido. Esa curva y la de 2026 cuentan lo mismo con cinco años de distancia &mdash; y en las dos, la estabilización la produjo el mismo equipo que atiende las alertas.</div>
     </div>
 
-    <div class="pending" data-animate data-delay="5">
+    <div class="pending" data-animate data-delay="6">
       <b>Pendiente de incorporar</b>
-      La carpeta «03 Guardia ME» aún no contiene los reportes de 2025 y 2026. En cuanto se
-      compartan, este capítulo cierra la serie hasta el mes en curso.
+      Falta el cierre de <b>2025</b> de Guardia ME &mdash; la serie histórica salta de 2024 a 2026 &mdash;
+      y los checklists de <b>mayo a agosto de 2026</b>, que hoy llegan solo hasta abril.
+      Las series de 2021&ndash;2024 y la de 2026 provienen de herramientas distintas
+      (Solman/Focus y Dynatrace SAP Azure), por lo que se presentan por separado y no se suman.
     </div>
 
     <p class="take" data-animate data-delay="6">Es el capítulo que menos se ve en un comité y el que más se nota cuando falta: es la razón por la que un incidente de madrugada no llega a ser una parada de planta a las 7 de la mañana.</p>
-    <div class="src"><b>Fuente</b> Instancias &amp; BDs SAP · hoja «Indicadores Operación» &nbsp;·&nbsp; Inventario Operaciones 2025 · hoja «Indicadores Operación».</div>
+    <div class="src"><b>Fuente</b> «Filtro para indicadores Dynatrace.xlsx» · hoja «Analisis ajustes alertas» &nbsp;·&nbsp; «Indicadores de Agosto Dynatrace SAP Azure.pptx» &nbsp;·&nbsp; «Dynatrace KOF · Resultados Mayo 2026.pptx» &nbsp;·&nbsp; «Indicadores de CheckList Guardia ME.pptx» (abril 2026) &nbsp;·&nbsp; «Consolidado de sistemas KOF · marzo 2026.xlsx» &nbsp;·&nbsp; Inventario Operaciones 2025 · hoja «Indicadores Operación».</div>
   </div>
 </section>
 
@@ -1473,8 +1539,9 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
 
     <div class="pending" data-animate data-delay="5">
       <b>Pendiente de incorporar</b>
-      La serie <b>Guardia ME 2025&ndash;2026</b>. TQS y FTE ya están al día hasta agosto de 2026 y
-      el detalle de <b>Archiving</b> está en el <b>Acto 05</b>, con corte a julio de 2026.
+      El cierre <b>2025 de Guardia ME</b>: su serie histórica llega a 2024 y retoma en 2026.
+      TQS y FTE están al día hasta agosto de 2026, <b>Guardia ME</b> hasta agosto en alertas
+      y hasta abril en checklists (<b>anexo A5</b>), y <b>Archiving</b> hasta julio (<b>Acto 05</b>).
     </div>
 
     <p class="take" data-animate data-delay="6">El año récord no fue el techo: fue la nueva línea base. Y se está superando con la misma plantilla.</p>
@@ -1501,7 +1568,7 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
       <b>A2 · Cuatro equipos</b> — cómo se reparte el servicio entre TQS, FTE, Guardia ME y Archiving.<br>
       <b>A3 · TQS</b> — volumen anual y mensual, 2021 a 2026, y las cinco carteras nominadas.<br>
       <b>A4 · FTE</b> — actividad, mezcla de trabajo y comparación 2025 contra 2026.<br>
-      <b>A5 · Guardia ME</b> — cobertura 7&times;24, alertas y checklists.<br>
+      <b>A5 · Guardia ME</b> — cobertura 7&times;24, alertas Dynatrace 2026 y los seis cambios al monitoreo.<br>
       <b>A6 · Críticos y causa raíz</b> — incidentes críticos y cobertura de RCA.<br>
       <b>A7 · 2026 en curso</b> — consolidado TQS + FTE del año abierto.<br>
       <b>Archiving</b> — su detalle completo está en el <b>Acto 05</b>, no en el anexo.
@@ -1564,6 +1631,26 @@ window.OPS = {
   fteAct:    [2954, 3055, 3635, 5254, 6386],
   meAlertas: [7091, 10230, 7787, 4638],
   meCheck:   [29118, 26190, 21906, 16901],
+
+  /* Monitoreo Dynatrace SAP Azure 2026 — «Filtro para indicadores Dynatrace.xlsx»,
+     hoja «Analisis ajustes alertas» (3,579 alertas, tabla dinamica del cliente) y
+     «Indicadores de Agosto Dynatrace SAP Azure.pptx». */
+  dyn2026: {
+    meses:   ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago'],
+    total:   [719, 491, 795, 384, 235, 298, 250, 407],
+    disco:   [336, 284, 307, 215, 170, 196, 167, 188],
+    cpu:     [115, 105, 104,   0,   0,   0,   0,   0],
+    browser: [167,  49, 258,  31,  10,   7,   4,   3],
+    uso:     [ 38,  36,  49,  46,  34,  38,  44, 168],
+    otras:   [ 63,  17,  77,  92,  21,  57,  35,  48],
+    cerradas: 3573
+  },
+
+  /* «Indicadores DE CheckList Guardia ME.pptx» — corte a abril 2026 */
+  meCheck2026: { meses: ['Ene', 'Feb', 'Mar', 'Abr'], v: [2434, 2145, 2308, 1691] },
+
+  /* «Consolidado de sistemas KOF Actualizado Marzo 2026.xlsx» */
+  parqueME: { abap: 60, java: 64, hostFisico: 340, hostVirtual: 280 },
 
   consultores: { tqs: [3,3,3,4,5], fte: [7,7,7,8,7], me: [4,4,4,5,5] },
   aplicaciones:{ tqs: [17,17,25,41,43], fte: [15,15,20,23,24], me: [10,10,10,10,11] },
@@ -1903,6 +1990,14 @@ window.OPS = {
 
   /* C6 */
   put('chClock', clock());
+  put('chDyn2026', vBars(D.dyn2026.meses, [
+    { n: 'Slow disk', c: 'var(--rust)', v: D.dyn2026.disco },
+    { n: 'CPU saturation', c: 'var(--crit)', v: D.dyn2026.cpu },
+    { n: 'Browser monitor outage', c: 'var(--amber)', v: D.dyn2026.browser },
+    { n: 'Caída de uso de aplicación', c: 'var(--blue-lite)', v: D.dyn2026.uso },
+    { n: 'Otras', c: '#6C7385', v: D.dyn2026.otras }
+  ], { h: 268, bw: 34 }));
+
   put('chGuardia', gBars(['2021', '2022', '2023', '2024'], [
     { n: 'Alertas', c: 'var(--coral)', v: D.meAlertas },
     { n: 'Checklists', c: 'var(--ok)', v: D.meCheck }
