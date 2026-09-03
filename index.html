@@ -714,30 +714,47 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
 <section class="scene scene--dark scene--tall" id="c5" data-chapter="FTE" data-dark>
   <div class="scene__inner">
     <div class="kicker" data-animate>Capítulo 05 · La demanda del día a día</div>
-    <h2 class="claim claim--sm" data-animate data-delay="1">FTE: 6,386 actividades. La mitad, emergentes.</h2>
+    <h2 class="claim claim--sm" data-animate data-delay="1">La mitad del trabajo FTE era imprevisto. Hoy son siete de cada diez.</h2>
     <p class="lede" data-animate data-delay="2">
-      El equipo FTE cerró 2025 con <strong>6,386 actividades</strong> — <strong>+22%</strong>
-      contra 2024 y <strong>+116%</strong> contra 2021. Lo relevante no es el total, es la
-      mezcla: <strong>3,198 requerimientos emergentes</strong> — un 50% del trabajo llega sin
-      previo aviso y aun así se atiende.
+      El equipo FTE cerró 2025 con <strong>6,386 actividades</strong> y la mitad llegó sin
+      previo aviso. En los primeros ocho meses de 2026 ya lleva <strong>5,822</strong> &mdash; el
+      <strong>91%</strong> de todo el año anterior &mdash; y los requerimientos emergentes son
+      <strong>4,138</strong>, el <strong>71%</strong> del trabajo. El ritmo pasó de
+      <strong>532 a 728 actividades al mes</strong>: <strong>+37%</strong>, con seis consultores
+      donde en 2025 había siete.
     </p>
 
     <div class="stats-grid stats-grid--5" data-animate data-delay="3">
-      <div class="stat"><div class="stat__n" data-count="6386">6,386</div><div class="stat__l">Actividades 2025</div></div>
-      <div class="stat"><div class="stat__n" data-count="3198">3,198</div><div class="stat__l">Emergentes</div><div class="stat__d">50% del total</div></div>
-      <div class="stat"><div class="stat__n" data-count="2471">2,471</div><div class="stat__l">De rutina</div></div>
-      <div class="stat"><div class="stat__n" data-count="178">178</div><div class="stat__l">Problemas resueltos</div></div>
-      <div class="stat"><div class="stat__n" data-count="143">143</div><div class="stat__l">RFCs apoyados</div></div>
+      <div class="stat"><div class="stat__n" data-count="5822">5,822</div><div class="stat__l">Actividades ene &ndash; ago 2026</div><div class="stat__d">91% de todo 2025</div></div>
+      <div class="stat"><div class="stat__n" data-count="728">728</div><div class="stat__l">Actividades por mes</div><div class="stat__d">Promedio 2025: 532</div></div>
+      <div class="stat"><div class="stat__n" data-count="4138">4,138</div><div class="stat__l">Requerimientos emergentes</div><div class="stat__d">71% del total &nbsp;·&nbsp; 2025: 50%</div></div>
+      <div class="stat"><div class="stat__n" data-count="1292">1,292</div><div class="stat__l">De rutina</div><div class="stat__d">162 al mes &nbsp;·&nbsp; 2025: 206</div></div>
+      <div class="stat"><div class="stat__n" data-count="234">234</div><div class="stat__l">Indicadores generados</div><div class="stat__d">Casi 30 cada mes</div></div>
     </div>
 
-    <div class="grid-1-2" data-animate data-delay="4">
+    <div class="grid2" data-animate data-delay="4">
       <div class="card">
-        <div class="card__t">Cinco años de actividad FTE</div>
-        <div class="card__sub">Total anual de actividades</div>
+        <div class="card__t">Seis años de actividad FTE</div>
+        <div class="card__sub">Total anual de actividades · 2026 es parcial (enero a agosto)</div>
         <div id="chFteYears"></div>
+        <div class="card__note">La barra de 2026 cubre ocho meses y ya casi iguala el año completo de 2025. Al ritmo actual, el año cerraría por encima de cualquier ejercicio de la serie.</div>
       </div>
       <div class="card">
-        <div class="card__t">2025 mes a mes, por tipo de trabajo</div>
+        <div class="card__t">Ritmo mensual: lo imprevisto casi se duplicó</div>
+        <div class="card__sub">Promedio de actividades al mes &mdash; la forma de comparar un año cerrado con uno en curso</div>
+        <div id="chFteRitmo"></div>
+        <div class="chart-legend">
+          <span><i style="background:#FFAE41"></i>Emergentes por mes</span>
+          <span><i style="background:#4995FF"></i>De rutina por mes</span>
+        </div>
+        <div class="card__note">Emergentes: de 267 a 517 al mes (<b>+94%</b>). De rutina: de 206 a 162 (<b>&minus;21%</b>). El trabajo planificable se encogió y el imprevisto ocupó su lugar.</div>
+      </div>
+    </div>
+
+    <div class="subhead" data-animate data-delay="5">Mes a mes, a la misma escala</div>
+    <div class="grid2" data-animate data-delay="5" style="margin-top:12px">
+      <div class="card">
+        <div class="card__t">2025 · doce meses</div>
         <div class="card__sub">Rutina · Emergentes · Resto (problemas, recomendaciones, RFCs, indicadores, mensajes SAP)</div>
         <div id="chFteMonth"></div>
         <div class="chart-legend">
@@ -745,17 +762,30 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
           <span><i style="background:#FFAE41"></i>Emergentes</span>
           <span><i style="background:#5E6880"></i>Resto</span>
         </div>
+        <div class="card__note">Mes más alto de 2025: mayo, con 659 actividades.</div>
+      </div>
+      <div class="card">
+        <div class="card__t">2026 · enero a agosto</div>
+        <div class="card__sub">Mismas categorías y misma escala vertical que la gráfica de 2025</div>
+        <div id="chFte2026"></div>
+        <div class="chart-legend">
+          <span><i style="background:#4995FF"></i>Rutina</span>
+          <span><i style="background:#FFAE41"></i>Emergentes</span>
+          <span><i style="background:#5E6880"></i>Resto</span>
+        </div>
+        <div class="card__note">Julio es el mes más cargado de toda la serie FTE: <b>923 actividades</b>, 690 de ellas emergentes. Cinco de los ocho meses de 2026 superan al mejor mes de 2025.</div>
       </div>
     </div>
 
-    <div class="subhead" data-animate data-delay="5">La composición del año</div>
-    <div class="card" data-animate data-delay="5" style="margin-top:12px">
-      <div class="card__t">Las siete categorías de trabajo FTE en 2025</div>
-      <div id="chFteMix"></div>
+    <div class="card" data-animate data-delay="6" style="margin-top:18px">
+      <div class="card__t">La composición del trabajo en 2026</div>
+      <div class="card__sub">Las siete categorías FTE · enero a agosto</div>
+      <div id="chFteMix" style="max-width:780px;margin:0 auto"></div>
+      <div class="card__note">«Problemas resueltos» no se compara contra 2025: el criterio de registro cambió a mitad de aquel año &mdash; 27 al mes hasta junio, menos de 3 al mes a partir de julio. Se muestra el dato 2026 tal cual viene del consolidado, sin cruzarlo con la serie anterior.</div>
     </div>
 
-    <p class="take" data-animate data-delay="6">303 indicadores generados y 57 mensajes SAP escalados durante el año: el equipo no solo ejecuta, también documenta y lleva el caso hasta el fabricante cuando hace falta.</p>
-    <div class="src"><b>Fuente</b> Actividades FTE · Gráfica Mensual Diciembre 2025 — tabla consolidada de actividades por mes.</div>
+    <p class="take" data-animate data-delay="6">El volumen subió, la mezcla se volvió más imprevisible y el equipo se hizo más pequeño. Del lado del negocio no se notó ninguna de las tres cosas. Eso es exactamente lo que está en juego.</p>
+    <div class="src"><b>Fuente</b> actualización · 02.FTE · 01.Agosto 2026 &mdash; «Actividades FTE 2026 Acumulado.xlsx», hoja «Grafica-PPT» (consolidado enero&ndash;agosto 2026) &nbsp;·&nbsp; «Actividades FTE · Gráfica Mensual Diciembre 2025» para 2021&ndash;2025. Solo cifras consolidadas: el desglose por consultor de la misma hoja tiene columnas vacías por altas y bajas de plantilla y no forma una serie comparable.</div>
   </div>
 </section>
 
@@ -908,20 +938,32 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
     <div class="kicker" data-animate>Capítulo 09 · El año en curso</div>
     <h2 class="claim claim--sm" data-animate data-delay="1">2026 va a más ritmo que el año récord.</h2>
     <p class="lede" data-animate data-delay="2">
-      Con las cinco carteras cargadas, TQS lleva <strong>4,922 actividades</strong> entre enero y
-      agosto de 2026: <strong>1,769 RFCs</strong> y <strong>3,153 solicitudes, KITs e incidentes</strong>.
-      Son <strong>615 actividades al mes</strong> frente a las <strong>568</strong> del promedio de 2025,
-      que ya era el año más alto de la serie — <strong>+8%</strong> sobre el récord, con el año aún abierto.
+      Con TQS y FTE consolidados, el servicio lleva <strong>10,744 actividades</strong> entre enero
+      y agosto de 2026: <strong>4,922 de TQS</strong> y <strong>5,822 de FTE</strong>. Son
+      <strong>1,343 actividades al mes</strong> frente a las <strong>1,100</strong> del promedio de
+      2025, que ya era el año más alto de la serie &mdash; <strong>+22%</strong> sobre el récord,
+      con el año aún abierto.
     </p>
 
     <div class="stats-grid stats-grid--4" data-animate data-delay="3">
-      <div class="stat"><div class="stat__n" data-count="4922">4,922</div><div class="stat__l">Actividades ene &ndash; ago 2026</div><div class="stat__d">Cinco carteras TQS</div></div>
-      <div class="stat"><div class="stat__n" data-count="615">615</div><div class="stat__l">Actividades por mes</div><div class="stat__d">Promedio 2025: 568</div></div>
-      <div class="stat"><div class="stat__n" data-count="304">304</div><div class="stat__l">Monitores ejecutados</div><div class="stat__d">38 cada mes, sin fallar uno</div></div>
-      <div class="stat"><div class="stat__n" data-count="10">10</div><div class="stat__l">RCAs entregados</div><div class="stat__d">Causa raíz documentada</div></div>
+      <div class="stat"><div class="stat__n" data-count="10744">10,744</div><div class="stat__l">Actividades ene &ndash; ago 2026</div><div class="stat__d">TQS + FTE</div></div>
+      <div class="stat"><div class="stat__n" data-count="1343">1,343</div><div class="stat__l">Actividades por mes</div><div class="stat__d">Promedio 2025: 1,100</div></div>
+      <div class="stat"><div class="stat__n" data-count="4922">4,922</div><div class="stat__l">TQS · cinco carteras</div><div class="stat__d">615 al mes &nbsp;·&nbsp; 2025: 568</div></div>
+      <div class="stat"><div class="stat__n" data-count="5822">5,822</div><div class="stat__l">FTE · seis consultores</div><div class="stat__d">728 al mes &nbsp;·&nbsp; 2025: 532</div></div>
     </div>
 
-    <div class="grid2" data-animate data-delay="4">
+    <div class="card" data-animate data-delay="4">
+      <div class="card__t">Carga mensual del servicio en 2026</div>
+      <div class="card__sub">Actividades TQS y FTE apiladas, enero a agosto</div>
+      <div id="chTqsFte2026" style="max-width:780px;margin:0 auto"></div>
+      <div class="chart-legend">
+        <span><i style="background:#D14600"></i>TQS</span>
+        <span><i style="background:#4995FF"></i>FTE</span>
+      </div>
+      <div class="card__note">De <b>1,241 actividades en enero</b> a <b>1,583 en julio</b>. La carga no solo está por encima del año récord: crece dentro del propio año. Y los 304 monitores TQS del periodo se ejecutaron completos, 38 cada mes.</div>
+    </div>
+
+    <div class="grid2" data-animate data-delay="4" style="margin-top:18px">
       <div class="card">
         <div class="card__t">Consolidado TQS · enero &ndash; agosto 2026</div>
         <div class="card__sub">RFCs y Solicitudes/KIT/Incidentes por mes</div>
@@ -942,12 +984,12 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
 
     <div class="pending" data-animate data-delay="5">
       <b>Pendiente de incorporar</b>
-      El consolidado <b>FTE 2026</b> y la serie <b>Guardia ME 2025&ndash;2026</b>.
-      Con esos dos bloques, este capítulo cubre los tres frentes del servicio y no solo TQS.
+      La serie <b>Guardia ME 2025&ndash;2026</b>. TQS y FTE ya están al día hasta agosto de 2026;
+      con la guardia incorporada, este capítulo cubre los tres frentes del servicio.
     </div>
 
     <p class="take" data-animate data-delay="6">El año récord no fue el techo: fue la nueva línea base. Y se está superando con la misma plantilla.</p>
-    <div class="src"><b>Fuente</b> actualización · 01.TQS · 01.2026 — «Data Indicadores TQS Total 2026.xlsx» (hojas Histórico mensual y anual) e «Indicadores Estratégicos TQS Agosto 2026.pptx».</div>
+    <div class="src"><b>Fuente</b> actualización · 01.TQS · 01.2026 — «Data Indicadores TQS Total 2026.xlsx» (hojas Histórico mensual y anual) &nbsp;·&nbsp; actualización · 02.FTE · 01.Agosto 2026 — «Actividades FTE 2026 Acumulado.xlsx», hoja «Grafica-PPT».</div>
   </div>
 </section>
 
@@ -1087,6 +1129,21 @@ window.OPS = {
     ind:    [27,26,26,26,26,27,27,22,22,24,28,22],
     msg:    [2,7,3,4,5,4,6,7,6,7,0,6]
   },
+
+  /* Actividades FTE 2026 Acumulado.xlsx - hoja «Grafica-PPT», consolidado
+     enero a agosto 2026. Solo el consolidado: el desglose por consultor de la
+     misma hoja tiene columnas vacias (altas y bajas de plantilla) y no cuadra
+     como serie comparable. */
+  fte2026: {
+    pr:     [2,5,6,1,3,2,1,2],
+    rutina: [160,143,118,159,165,183,192,172],
+    emerg:  [342,350,389,523,590,605,690,649],
+    recom:  [1,3,2,5,0,7,1,0],
+    rfc:    [2,25,11,2,11,5,4,20],
+    ind:    [26,30,23,30,31,32,32,30],
+    msg:    [6,2,4,2,5,6,3,9]
+  },
+  fte2026Anual: { total: 5822 },
 
   /* Data Indicadores TQS Total 2026.xlsx — consolidado de las 5 carteras,
      enero a agosto 2026 */
@@ -1318,23 +1375,41 @@ window.OPS = {
     '</div>').join(''));
 
   /* C5 */
-  put('chFteYears', vBars(['2021', '2022', '2023', '2024', '2025'],
-    [{ n: 'Actividades', c: 'var(--blue-lite)', v: D.fteAct }], { h: 215, bw: 42 }));
-  const resto = D.meses.map((_, i) =>
+  const resto25 = D.meses.map((_, i) =>
     D.fte2025.pr[i] + D.fte2025.recom[i] + D.fte2025.rfc[i] + D.fte2025.ind[i] + D.fte2025.msg[i]);
+  const resto26 = D.fte2026.rutina.map((_, i) =>
+    D.fte2026.pr[i] + D.fte2026.recom[i] + D.fte2026.rfc[i] + D.fte2026.ind[i] + D.fte2026.msg[i]);
+  const fteMes25 = D.meses.map((_, i) => D.fte2025.rutina[i] + D.fte2025.emerg[i] + resto25[i]);
+  const fteMes26 = D.fte2026.rutina.map((v, i) => v + D.fte2026.emerg[i] + resto26[i]);
+  const fteMax = Math.max.apply(null, fteMes25.concat(fteMes26));
+
+  put('chFteYears', vBars(['2021', '2022', '2023', '2024', '2025', '2026*'],
+    [{ n: 'Actividades', c: 'var(--blue-lite)', v: D.fteAct.concat([D.fte2026Anual.total]) }],
+    { h: 215, bw: 36 }));
   put('chFteMonth', vBars(D.meses, [
     { n: 'Rutina', c: 'var(--blue-lite)', v: D.fte2025.rutina },
     { n: 'Emergentes', c: 'var(--amber)', v: D.fte2025.emerg },
-    { n: 'Resto', c: '#5E6880', v: resto }
-  ], { h: 235, bw: 26 }));
+    { n: 'Resto', c: '#5E6880', v: resto25 }
+  ], { h: 235, bw: 26, max: fteMax }));
+  put('chFte2026', vBars(D.meses.slice(0, 8), [
+    { n: 'Rutina', c: 'var(--blue-lite)', v: D.fte2026.rutina },
+    { n: 'Emergentes', c: 'var(--amber)', v: D.fte2026.emerg },
+    { n: 'Resto', c: '#5E6880', v: resto26 }
+  ], { h: 235, bw: 34, max: fteMax }));
+  put('chFteRitmo', gBars(['2025 · 12 meses', '2026 · ene a ago'], [
+    { n: 'Emergentes por mes', c: 'var(--amber)',
+      v: [Math.round(sum(D.fte2025.emerg) / 12), Math.round(sum(D.fte2026.emerg) / 8)] },
+    { n: 'De rutina por mes', c: 'var(--blue-lite)',
+      v: [Math.round(sum(D.fte2025.rutina) / 12), Math.round(sum(D.fte2026.rutina) / 8)] }
+  ], { h: 210, bw: 58 }));
   put('chFteMix', hBars([
-    { k: 'Emergentes',       v: sum(D.fte2025.emerg),  c: 'var(--amber)' },
-    { k: 'De rutina',        v: sum(D.fte2025.rutina), c: 'var(--blue-lite)' },
-    { k: 'Indicadores',      v: sum(D.fte2025.ind),    c: 'var(--peach)' },
-    { k: 'Problemas',        v: sum(D.fte2025.pr),     c: 'var(--coral)' },
-    { k: 'RFCs apoyados',    v: sum(D.fte2025.rfc),    c: 'var(--blue)' },
-    { k: 'Mensajes SAP',     v: sum(D.fte2025.msg),    c: '#5E6880' },
-    { k: 'Recomendaciones',  v: sum(D.fte2025.recom),  c: 'var(--ok)' }
+    { k: 'Emergentes',       v: sum(D.fte2026.emerg),  c: 'var(--amber)' },
+    { k: 'De rutina',        v: sum(D.fte2026.rutina), c: 'var(--blue-lite)' },
+    { k: 'Indicadores',      v: sum(D.fte2026.ind),    c: 'var(--peach)' },
+    { k: 'RFCs apoyados',    v: sum(D.fte2026.rfc),    c: 'var(--blue)' },
+    { k: 'Mensajes SAP',     v: sum(D.fte2026.msg),    c: '#5E6880' },
+    { k: 'Problemas',        v: sum(D.fte2026.pr),     c: 'var(--coral)' },
+    { k: 'Recomendaciones',  v: sum(D.fte2026.recom),  c: 'var(--ok)' }
   ], { padL: 120 }));
 
   /* C6 */
@@ -1371,6 +1446,13 @@ window.OPS = {
     { n: 'RFC', c: 'var(--blue)', v: D.tqs2026.rfc },
     { n: 'Solin / KIT / INC', c: 'var(--coral)', v: D.tqs2026.solin }
   ], { h: 235, bw: 34 }));
+  put('chTqsFte2026', vBars(D.meses.slice(0, 8), [
+    { n: 'TQS', c: 'var(--rust)', v: D.tqs2026.rfc.map((v, i) => v + D.tqs2026.solin[i]) },
+    { n: 'FTE', c: 'var(--blue-lite)',
+      v: D.fte2026.rutina.map((v, i) => v + D.fte2026.emerg[i] + D.fte2026.pr[i] +
+         D.fte2026.recom[i] + D.fte2026.rfc[i] + D.fte2026.ind[i] + D.fte2026.msg[i]) }
+  ], { h: 250, bw: 44 }));
+
   put('chCarteras2026', hBars(D.carteras.map((c) => ({ k: c.n, v: c.rfc + c.solin })),
     { padL: 150, color: 'var(--rust)', rowH: 32 }));
 })();
