@@ -481,6 +481,26 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
   .noh__v { text-align: left; }
 }
 
+/* ============================================================
+   Lectura — qué dice cada gráfica. Obligatoria en todo chart.
+   ============================================================ */
+.card__read {
+  margin-top: 14px; padding: 13px 16px 14px 17px;
+  border-left: 3px solid var(--amber); border-radius: 0 12px 12px 0;
+  background: rgba(255, 174, 65, .09);
+  font-size: 13.5px; line-height: 1.62; color: var(--ink);
+}
+.card__read::before {
+  content: 'Lectura'; display: block; margin-bottom: 6px;
+  font-family: var(--font-display); font-weight: 700; font-size: 10px;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--rust);
+}
+.card__read b { font-weight: 700; }
+.scene--dark .card__read { background: rgba(255, 174, 65, .10); color: var(--d-ink-soft); }
+.scene--dark .card__read::before { color: var(--amber); }
+.scene--dark .card__read b { color: var(--d-ink); }
+.card__note + .card__read { margin-top: 10px; }
+
 /* Medidor de ocupación — anexo Archiving */
 .meter { margin-top: 6px; }
 .meter__r {
@@ -645,13 +665,13 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
         <div class="card__t">El parque creció dentro del propio año</div>
         <div class="card__sub">Instancias y bases de datos gestionadas, cierre mensual 2025</div>
         <div id="aChInv"></div>
-        <div class="card__note">El escalón de julio &mdash; incorporación de KOF México y expansión de Brasil y Jugos del Valle &mdash; fue de <b>+71% en un solo mes</b>. Se absorbió sin ampliar la plantilla.</div>
+        <div class="card__read">El parque casi se duplicó dentro del mismo año, y el salto llegó de golpe: <b>+71% en julio</b>. Se absorbió sin sumar una sola persona. El crecimiento de KOF no se tradujo en más costo de operación.</div>
       </div>
       <div class="card">
         <div class="card__t">Y la superficie aplicativa creció durante cinco años</div>
         <div class="card__sub">Catálogo de aplicaciones bajo gestión TQS, 2021 &rarr; 2025</div>
         <div id="aChApps"></div>
-        <div class="card__note">Dynatrace, MuleSoft, SAP BTP, Cloud Connector, Data Provisioning y S/4 en Azure entraron al catálogo operado sin ampliar la estructura.</div>
+        <div class="card__read">Operar hoy exige dominar casi tres veces más plataformas que en 2021 &mdash; Dynatrace, MuleSoft, BTP, Cloud Connector, S/4 en Azure entraron al catálogo. La estructura que las opera no creció en la misma proporción.</div>
       </div>
     </div>
 
@@ -693,7 +713,7 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
         <span><i style="background:#9BA0B0"></i>Consultores asignados</span>
         <span><i style="background:#1F9D6B"></i>Carga por consultor</span>
       </div>
-      <div class="card__note">Las dos líneas se separan a partir de 2023 y no vuelven a juntarse. Todo lo que hay entre la línea naranja y la gris es complejidad que el negocio no tuvo que gestionar.</div>
+      <div class="card__read">Las dos líneas se separan en 2023 y no vuelven a juntarse. Todo lo que hay entre la naranja y la gris es complejidad que alguien absorbió sin que el negocio la viera ni la pagara.</div>
     </div>
 
     <div class="subhead" data-animate data-delay="5">Cómo se absorbe: cuatro frentes, una sola operación</div>
@@ -788,7 +808,7 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
         <span><i style="background:#D42020"></i>Incidentes críticos</span>
         <span><i style="background:#1F9D6B"></i>RCA entregados</span>
       </div>
-      <div class="card__note">La cobertura de causa raíz pasó de <b>14%</b> a <b>77%</b> de los incidentes críticos. Es la diferencia entre un problema que vuelve y uno que no.</div>
+      <div class="card__read">La cobertura de causa raíz pasó de <b>14%</b> a <b>77%</b>. Es la diferencia entre cerrar un incidente y evitar que vuelva: el servicio dejó de reaccionar y empezó a eliminar causas.</div>
     </div>
 
     <p class="quote-band" data-animate data-delay="6">
@@ -830,7 +850,7 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
         <span><i style="background:#D14600"></i>TQS</span>
         <span><i style="background:#4995FF"></i>FTE</span>
       </div>
-      <div class="card__note">De <b>1,241 actividades en enero</b> a <b>1,583 en julio</b>. Esta carga no es un pico: es la nueva línea base, y hay que absorberla todos los meses.</div>
+      <div class="card__read">De <b>1,241 actividades en enero</b> a <b>1,583 en julio</b>. No es un pico estacional: es la nueva línea base. Cada mes que viene llega con esta carga, exista o no quien la absorba.</div>
     </div>
 
     <div class="subhead" data-animate data-delay="5">Cuatro riesgos que hoy están cubiertos</div>
@@ -962,11 +982,13 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
         <div class="card__t">Dónde vive la operación</div>
         <div class="card__sub">Instancias por unidad de negocio — diciembre 2025</div>
         <div id="chBiz"></div>
+        <div class="card__read">Seis unidades de negocio en cinco países dependen del mismo equipo. Un incidente en Brasil y uno en México se atienden con las mismas manos, en la misma guardia y con el mismo presupuesto.</div>
       </div>
       <div class="card">
         <div class="card__t">Sobre qué corre</div>
         <div class="card__sub">Instancias por plataforma — diciembre 2025</div>
         <div id="chOs"></div>
+        <div class="card__read">El parque no es homogéneo: <b>170 instancias siguen sobre HP-UX</b> heredado mientras otras ya viven en Azure. Sostener las dos puntas a la vez exige perfiles técnicos que el mercado ya casi no forma.</div>
       </div>
     </div>
 
@@ -996,13 +1018,13 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
         <div class="card__t">Aplicaciones bajo gestión</div>
         <div class="card__sub">Catálogo TQS, 2021 &rarr; 2025</div>
         <div id="chApps"></div>
-        <div class="card__note">+153% de superficie aplicativa en cinco años.</div>
+        <div class="card__read">De 17 a 43 aplicaciones en cinco años (<b>+153%</b>). Cada alta amplía la superficie que hay que conocer, vigilar y mantener &mdash; y ninguna se dio de baja para compensar.</div>
       </div>
       <div class="card">
         <div class="card__t">Instancias y bases de datos gestionadas</div>
         <div class="card__sub">Cierre mensual 2025 — todas las unidades de negocio</div>
         <div id="chInv"></div>
-        <div class="card__note">El escalón de julio 2025 (+71% mes contra mes) se absorbió sin ampliar la plantilla ese mes.</div>
+        <div class="card__read">El escalón de julio 2025 (<b>+71%</b> en un mes) entró completo al servicio sin ampliar la plantilla. Un crecimiento de ese tamaño normalmente exige renegociar el contrato; aquí no lo exigió.</div>
       </div>
     </div>
 
@@ -1080,6 +1102,7 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
       <div class="card__t">Consultores y aplicaciones por equipo, 2021 &rarr; 2025</div>
       <div class="card__sub">Barra = aplicaciones bajo gestión · Punto = consultores asignados. Serie de TQS, FTE y Guardia ME; Archiving se incorpora al alcance en 2026 y aún no tiene serie histórica.</div>
       <div id="chTeams"></div>
+      <div class="card__read">Las barras (aplicaciones) suben; los puntos (consultores) casi no se mueven. Cada consultor cubre hoy mucha más superficie que en 2021. Esa distancia entre barra y punto es, exactamente, la productividad que absorbió el crecimiento.</div>
     </div>
 
     <p class="take" data-animate data-delay="5">En cinco años el catálogo del servicio se multiplicó. La plantilla se movió apenas. Los siguientes capítulos muestran, equipo por equipo, qué salió de esas manos.</p>
@@ -1117,6 +1140,7 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
           <span><i style="background:#004AAC"></i>RFC</span>
           <span><i style="background:#FF7E51"></i>Solin / KIT / INC</span>
         </div>
+        <div class="card__read">La demanda TQS se <b>triplicó</b> desde 2021, y el salto está en solicitudes e incidentes: de 743 a 5,001. No es que se pidan más proyectos; es que hay mucho más sistema del cual ocuparse todos los días.</div>
       </div>
       <div class="card">
         <div class="card__t">Ritmo mensual: el cambio controlado es el que crece</div>
@@ -1126,7 +1150,7 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
           <span><i style="background:#004AAC"></i>RFC por mes</span>
           <span><i style="background:#FF7E51"></i>Solin / KIT / INC por mes</span>
         </div>
-        <div class="card__note">RFCs: de 151 a 221 al mes (<b>+46%</b>). Solin/KIT/INC: de 417 a 394 (<b>&minus;6%</b>). Lo que crece es la ingeniería planificada, no el trabajo reactivo.</div>
+        <div class="card__read">Los RFCs suben de 151 a 221 al mes (<b>+46%</b>) mientras lo reactivo baja un <b>6%</b>. El servicio está dedicando más tiempo a cambio planificado y menos a apagar fuegos: es la señal de una operación bajo control.</div>
       </div>
     </div>
 
@@ -1140,7 +1164,7 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
           <span><i style="background:#004AAC"></i>RFC</span>
           <span><i style="background:#FF7E51"></i>Solin / KIT / INC</span>
         </div>
-        <div class="card__note">Pico en agosto (662 actividades). Mínimo en enero (398). Ningún mes por debajo de 380.</div>
+        <div class="card__read">No hay temporada baja: ningún mes de 2025 bajó de 380 actividades. La carga es constante, no estacional, así que el equipo tiene que estar dimensionado para el mes alto, no para el promedio.</div>
       </div>
       <div class="card">
         <div class="card__t">2026 · enero a agosto</div>
@@ -1150,7 +1174,7 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
           <span><i style="background:#004AAC"></i>RFC</span>
           <span><i style="background:#FF7E51"></i>Solin / KIT / INC</span>
         </div>
-        <div class="card__note">Julio es el mes más alto en RFCs (274); enero concentra el pico de Solin/KIT/INC (566) por el arranque de año. Promedio mensual 2026: <b>615 actividades</b>, 47 más que en 2025.</div>
+        <div class="card__read">El promedio mensual sube a <b>615 actividades</b>, 47 más que en 2025, y el peso se mueve hacia los RFCs. TQS no solo hace más: hace más cambio planificado sobre los mismos sistemas.</div>
       </div>
     </div>
 
@@ -1189,7 +1213,7 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
         <div class="card__t">Seis años de actividad FTE</div>
         <div class="card__sub">Total anual de actividades · 2026 es parcial (enero a agosto)</div>
         <div id="chFteYears"></div>
-        <div class="card__note">La barra de 2026 cubre ocho meses y ya casi iguala el año completo de 2025. Al ritmo actual, el año cerraría por encima de cualquier ejercicio de la serie.</div>
+        <div class="card__read">Con ocho meses, 2026 ya casi iguala el año completo de 2025. Al ritmo actual FTE cerrará el ejercicio más alto de toda la serie &mdash; con la misma plantilla que en 2021 atendía la mitad.</div>
       </div>
       <div class="card">
         <div class="card__t">Ritmo mensual: lo imprevisto casi se duplicó</div>
@@ -1199,7 +1223,7 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
           <span><i style="background:#FFAE41"></i>Emergentes por mes</span>
           <span><i style="background:#4995FF"></i>De rutina por mes</span>
         </div>
-        <div class="card__note">Emergentes: de 267 a 517 al mes (<b>+94%</b>). De rutina: de 206 a 162 (<b>&minus;21%</b>). El trabajo planificable se encogió y el imprevisto ocupó su lugar.</div>
+        <div class="card__read">Lo emergente casi se duplica (267 a 517 al mes) y lo planificable se encoge un 21%. FTE está absorbiendo el desorden que genera un ecosistema más grande, y lo resuelve dentro del mismo mes.</div>
       </div>
     </div>
 
@@ -1214,7 +1238,7 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
           <span><i style="background:#FFAE41"></i>Emergentes</span>
           <span><i style="background:#5E6880"></i>Resto</span>
         </div>
-        <div class="card__note">Mes más alto de 2025: mayo, con 659 actividades.</div>
+        <div class="card__read">2025 fue un año parejo, con mayo como techo (659 actividades). Ese techo es la referencia contra la que hay que leer 2026: en el año en curso se supera cinco veces.</div>
       </div>
       <div class="card">
         <div class="card__t">2026 · enero a agosto</div>
@@ -1225,7 +1249,7 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
           <span><i style="background:#FFAE41"></i>Emergentes</span>
           <span><i style="background:#5E6880"></i>Resto</span>
         </div>
-        <div class="card__note">Julio es el mes más cargado de toda la serie FTE: <b>923 actividades</b>, 690 de ellas emergentes. Cinco de los ocho meses de 2026 superan al mejor mes de 2025.</div>
+        <div class="card__read">Julio es el mes más cargado de toda la serie: <b>923 actividades</b>, 690 emergentes. Cinco de los ocho meses de 2026 superan al mejor mes de 2025. El techo del año pasado es hoy el promedio.</div>
       </div>
     </div>
 
@@ -1233,7 +1257,8 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
       <div class="card__t">La composición del trabajo en 2026</div>
       <div class="card__sub">Las siete categorías FTE · enero a agosto</div>
       <div id="chFteMix" style="max-width:780px;margin:0 auto"></div>
-      <div class="card__note">«Problemas resueltos» no se compara contra 2025: el criterio de registro cambió a mitad de aquel año &mdash; 27 al mes hasta junio, menos de 3 al mes a partir de julio. Se muestra el dato 2026 tal cual viene del consolidado, sin cruzarlo con la serie anterior.</div>
+      <div class="card__read">Siete de cada diez requerimientos llegan sin aviso, y aun así se resuelven dentro del mes. Esa mezcla es la que hace que el negocio no perciba el desorden que hay debajo.</div>
+        <div class="card__note">«Problemas resueltos» no se compara contra 2025: el criterio de registro cambió a mitad de aquel año &mdash; 27 al mes hasta junio, menos de 3 al mes a partir de julio. Se muestra el dato 2026 tal cual viene del consolidado, sin cruzarlo con la serie anterior.</div>
     </div>
 
     <p class="take" data-animate data-delay="6">El volumen subió, la mezcla se volvió más imprevisible y el equipo se hizo más pequeño. Del lado del negocio no se notó ninguna de las tres cosas. Eso es exactamente lo que está en juego.</p>
@@ -1273,7 +1298,7 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
         <span><i style="background:#FF7E51"></i>Alertas atendidas</span>
         <span><i style="background:#1F9D6B"></i>Checklists ejecutados</span>
       </div>
-      <div class="card__note">La curva a la baja no es menos trabajo: es menos ruido. Menos alertas por el mismo parque significa sistemas más estables — y la estabilización la hizo el propio equipo.</div>
+      <div class="card__read">Menos alertas sobre un parque que creció no significa menos trabajo: significa menos ruido. Los sistemas se estabilizaron, y esa estabilización la produjo el mismo equipo que atiende las alertas.</div>
     </div>
 
     <div class="pending" data-animate data-delay="5">
@@ -1326,6 +1351,7 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
         <span><i style="background:#9BA0B0"></i>Consultores asignados</span>
         <span><i style="background:#1F9D6B"></i>Actividades por consultor</span>
       </div>
+      <div class="card__read">La demanda subió <b>164%</b> y la plantilla <b>20%</b>. Ese hueco no lo cubrió el cliente contratando más, ni un tercero: lo cubrió la productividad del equipo, que pasó de 500 a 1,100 actividades por consultor al año.</div>
     </div>
 
     <p class="quote-band" data-animate data-delay="5">Absorber ese delta durante cinco años seguidos no es un accidente. Es conocimiento acumulado del negocio de KOF.</p>
@@ -1358,7 +1384,7 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
           <span><i style="background:#D42020"></i>2025</span>
           <span><i style="background:#FFAE41"></i>2026</span>
         </div>
-        <div class="card__note">El repunte de agosto 2026 (4 críticos) se concentra en una sola cartera y los cuatro cerraron con RCA.</div>
+        <div class="card__read">El repunte de agosto (4 críticos) se concentra en una sola cartera y los cuatro cerraron con causa raíz documentada. Un pico de incidentes deja de ser un riesgo cuando se explica y se corrige.</div>
       </div>
       <div class="card">
         <div class="card__t">De apagar el fuego a explicar el incendio</div>
@@ -1368,7 +1394,7 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
           <span><i style="background:#D42020"></i>Incidentes críticos</span>
           <span><i style="background:#1F9D6B"></i>RCA entregados</span>
         </div>
-        <div class="card__note">2 RCA sobre 14 críticos en 2025. 10 sobre 13 en 2026. El servicio dejó de reaccionar y empezó a documentar.</div>
+        <div class="card__read">De 2 causas raíz sobre 14 críticos a 10 sobre 13. El mismo número de incidentes, pero ahora se sabe por qué ocurrieron &mdash; y eso es lo que impide que se repitan el año siguiente.</div>
       </div>
     </div>
 
@@ -1412,14 +1438,14 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
         <span><i style="background:#D14600"></i>TQS</span>
         <span><i style="background:#4995FF"></i>FTE</span>
       </div>
-      <div class="card__note">De <b>1,241 actividades en enero</b> a <b>1,583 en julio</b>. La carga no solo está por encima del año récord: crece dentro del propio año. Y los 304 monitores TQS del periodo se ejecutaron completos, 38 cada mes.</div>
+      <div class="card__read">La carga no solo está por encima del año récord: sigue creciendo dentro del propio año. Y aun así los 304 monitores del periodo se ejecutaron completos, 38 cada mes, sin una sola omisión.</div>
     </div>
 
     <div class="card" data-animate data-delay="4" style="margin-top:18px">
       <div class="card__t">Reparto de la carga entre carteras</div>
       <div class="card__sub">Actividades acumuladas por consultor TQS, ene &ndash; ago 2026</div>
       <div id="chCarteras2026" style="max-width:780px;margin:0 auto"></div>
-      <div class="card__note">Ninguna cartera baja de 600 actividades en ocho meses. La distribución es pareja: no hay un solo punto de concentración de riesgo. El detalle mes a mes de TQS y de FTE está en los capítulos 04 y 05.</div>
+      <div class="card__read">Ninguna cartera baja de 600 actividades y ninguna se dispara: el reparto es parejo. Eso significa que no hay una sola persona cuya salida deje un hueco desproporcionado &mdash; el riesgo está distribuido a propósito.</div>
     </div>
 
     <div class="pending" data-animate data-delay="5">
@@ -1462,25 +1488,28 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
           <span><i style="background:#D14600"></i>RAP</span>
           <span><i style="background:#4995FF"></i>RLP</span>
         </div>
-        <div class="card__note">El bloque <b>&le;2014</b> agrupa todo lo archivado hasta ese año. Desde 2022 el volumen anual se mantiene por encima de los 45 TB entre ambos sistemas.</div>
+        <div class="card__note">El bloque <b>&le;2014</b> agrupa todo lo archivado hasta ese año; 2026 cubre solo el primer semestre.</div>
+        <div class="card__read">Trece años de archivado continuo: <b>591 TB</b> retirados de las bases de ECC. No es un proyecto que se terminó, es una tarea que se repite cada año — y desde 2022 el ritmo anual está por encima de los 45 TB.</div>
       </div>
       <div class="card">
-        <div class="card__t">Plan 2026 contra ejecución real</div>
-        <div class="card__sub">Terabytes comprometidos para el año y avance al cierre de junio</div>
-        <div id="chArchMeta" style="max-width:560px;margin:0 auto"></div>
+        <div class="card__t">El trabajo de capacidad del primer semestre</div>
+        <div class="card__sub">Terabytes retirados de la base y espacio recuperado, enero&ndash;junio 2026</div>
+        <div id="chArchWork" style="max-width:560px;margin:0 auto"></div>
         <div class="chart-legend">
-          <span><i style="background:#9BA0B0"></i>Plan 2026</span>
-          <span><i style="background:#1F9D6B"></i>Real a junio</span>
+          <span><i style="background:#D14600"></i>Datos archivados</span>
+          <span><i style="background:#1F9D6B"></i>Espacio recuperado</span>
         </div>
-        <div class="card__note">RAP va al <b>45%</b> del plan y RLP al <b>40%</b>, con el año a la mitad. El ritmo está alineado con el compromiso anual.</div>
+        <div class="card__note">Son dos medidas distintas y no se suman: archivar retira datos de la base; reorganizar devuelve al storage el espacio que quedó libre.</div>
+        <div class="card__read">En seis meses se retiraron <b>30.1 TB</b> de las bases productivas y se recuperaron <b>26.5 TB</b> de espacio. Sin ese trabajo sostenido, RAP y RLP seguirían creciendo sobre un storage que ya está al 99%.</div>
       </div>
     </div>
 
     <div class="card" data-animate data-delay="5" style="margin-top:18px">
-      <div class="card__t">Dónde está el margen hoy</div>
+      <div class="card__t">Los dos sistemas críticos ya no tienen holgura</div>
       <div class="card__sub">Uso de base de datos y ocupación de storage por sistema, junio 2026</div>
       <div id="chArchDb" class="meter" style="max-width:640px;margin:0 auto"></div>
-      <div class="card__note">RAP y RLP son los dos sistemas críticos: la base va al 87% y 86%, y el storage que las contiene está al <b>99%</b> en ambos. RVP tiene holgura (47% de base, 20% de storage). El margen de RAP y RLP depende directamente del ritmo de archivado.</div>
+      <div class="card__note">Cada sistema tiene dos barras: la naranja es cuánto de la base de datos está ocupado; la azul, cuánto del storage que la contiene está asignado.</div>
+      <div class="card__read">RAP y RLP están al límite: la base al <b>87%</b> y <b>86%</b>, y el storage al <b>99%</b> en ambos. RVP todavía tiene aire. Traducido: en los dos sistemas que mueven el negocio, el único margen disponible es el que libera el archivado de cada mes.</div>
     </div>
 
     <p class="take" data-animate data-delay="6">Archiving no genera tickets ni aparece en un tablero de servicio. Se nota exactamente una vez: el día que una base productiva se queda sin espacio.</p>
@@ -1932,9 +1961,9 @@ window.OPS = {
       { n: 'RLP', c: 'var(--blue-lite)', v: AR.rlp }
     ], { h: 250, bw: 24, showTotal: false }));
 
-    put('chArchMeta', gBars(['RAP', 'RLP'], [
-      { n: 'Plan 2026', c: '#9BA0B0', v: [AR.meta2026.rap, AR.meta2026.rlp] },
-      { n: 'Real a junio', c: 'var(--ok)', v: [AR.rap[AR.rap.length - 1], AR.rlp[AR.rlp.length - 1]] }
+    put('chArchWork', gBars(['RAP', 'RLP'], [
+      { n: 'Datos archivados', c: 'var(--rust)', v: [AR.rap[AR.rap.length - 1], AR.rlp[AR.rlp.length - 1]] },
+      { n: 'Espacio recuperado', c: 'var(--ok)', v: [AR.reorg2026.rap, AR.reorg2026.rlp] }
     ], { h: 230, bw: 62 }));
 
     let m = '';
