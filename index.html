@@ -49,6 +49,7 @@
   --kof: #E61A27;
 
   --ok: #1F9D6B;
+  --ok-lite: #35C48D;
   --poc: #C77800;
   --crit: #D42020;
 
@@ -546,6 +547,64 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
 .ring-wrap svg { width: 100%; height: auto; }
 .ring-seg { transition: opacity .3s, transform .3s; transform-box: fill-box; transform-origin: center; cursor: default; }
 .ring-seg:hover { opacity: 1 !important; }
+
+/* ============================================================
+   Frentes — las cuatro areas, en tamano protagonista (Acto 02)
+   ============================================================ */
+.frentes {
+  margin-top: 20px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px;
+}
+@media (max-width: 1180px) { .frentes { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px)  { .frentes { grid-template-columns: 1fr; } }
+
+.frente {
+  position: relative; display: flex; flex-direction: column; overflow: hidden;
+  border: 1px solid var(--hairline); border-radius: 18px; padding: 24px 22px 20px 24px;
+  background: var(--card);
+}
+.frente::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--fc);
+}
+.frente__n {
+  font-family: var(--font-display); font-weight: 700; font-size: 12px; letter-spacing: .17em;
+  text-transform: uppercase; color: var(--fc);
+}
+.frente__v {
+  margin-top: 16px; font-family: var(--font-display); font-weight: 700; line-height: .94;
+  font-size: clamp(32px, 3.9vw, 46px); letter-spacing: -.025em; color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+.frente__v small { font-size: .42em; font-weight: 700; margin-left: 4px; letter-spacing: 0; }
+.frente__u {
+  margin-top: 9px; font-size: 11.5px; line-height: 1.45; color: var(--ink-faint);
+  letter-spacing: .01em;
+}
+.frente__t {
+  margin-top: 18px; font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(15.5px, 1.5vw, 17.5px); line-height: 1.28; color: var(--ink); text-wrap: balance;
+}
+.frente__d { margin-top: 9px; font-size: 13px; line-height: 1.62; color: var(--ink-soft); }
+.frente__d b { font-weight: 700; color: var(--ink); }
+.frente__f {
+  margin-top: auto; padding-top: 18px; border-top: 1px solid var(--hairline);
+  display: flex; align-items: baseline; gap: 7px;
+  font-family: var(--font-display); font-weight: 600; font-size: 11.5px;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--ink-faint);
+}
+.frente__f b { font-size: 19px; letter-spacing: -.01em; text-transform: none; color: var(--fc); }
+
+.scene--dark .frente { background: #101219; border-color: var(--d-hairline); }
+.scene--dark .frente__v, .scene--dark .frente__t, .scene--dark .frente__d b { color: var(--d-ink); }
+.scene--dark .frente__d { color: var(--d-ink-soft); }
+.scene--dark .frente__u, .scene--dark .frente__f { color: var(--d-ink-faint); }
+.scene--dark .frente__f { border-top-color: var(--d-hairline); }
+
+/* Evidencia — grafica compacta con su lectura al lado */
+.evid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 6px 28px; align-items: center; }
+@media (max-width: 900px) { .evid { grid-template-columns: 1fr; } }
+.evid .card__read { margin-top: 0; }
+.evid .chart-legend { margin-top: 4px; }
+
 </style>
 </head>
 <body>
@@ -611,13 +670,14 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
     </div>
 
     <nav class="hub-grid" data-animate data-delay="5" aria-label="Contenido">
-      <div class="hub-divider">La historia, en cuatro actos</div>
+      <div class="hub-divider">La historia, en cinco actos</div>
       <button class="hub-card" data-goto="a1"><span class="hub-card__n">01</span><span class="hub-card__l">El negocio creció</span></button>
       <button class="hub-card" data-goto="a2"><span class="hub-card__n">02</span><span class="hub-card__l">La complejidad fue absorbida</span></button>
       <button class="hub-card" data-goto="a3"><span class="hub-card__n">03</span><span class="hub-card__l">El resultado es lo que no pasó</span></button>
       <button class="hub-card" data-goto="a4"><span class="hub-card__n">04</span><span class="hub-card__l">Qué riesgo evita esta capacidad</span></button>
+      <button class="hub-card" data-goto="a6"><span class="hub-card__n">05</span><span class="hub-card__l">El crecimiento que no se ve</span></button>
       <div class="hub-divider">El cierre</div>
-      <button class="hub-card" data-goto="a5"><span class="hub-card__n">05</span><span class="hub-card__l">Lo que está en juego</span></button>
+      <button class="hub-card" data-goto="a5"><span class="hub-card__n">06</span><span class="hub-card__l">Lo que está en juego</span></button>
       <div class="hub-divider">Anexo · evidencia y detalle, por si se pregunta</div>
       <button class="hub-card" data-goto="c1"><span class="hub-card__n">A1</span><span class="hub-card__l">El alcance real</span></button>
       <button class="hub-card" data-goto="c3"><span class="hub-card__n">A2</span><span class="hub-card__l">Cuatro equipos</span></button>
@@ -626,7 +686,8 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
       <button class="hub-card" data-goto="c6"><span class="hub-card__n">A5</span><span class="hub-card__l">Guardia ME · 7&times;24</span></button>
       <button class="hub-card" data-goto="c8"><span class="hub-card__n">A6</span><span class="hub-card__l">Críticos y causa raíz</span></button>
       <button class="hub-card" data-goto="c9"><span class="hub-card__n">A7</span><span class="hub-card__l">2026 en curso</span></button>
-      <button class="hub-card" data-goto="c10"><span class="hub-card__n">A8</span><span class="hub-card__l">Archiving · ECC</span></button>
+      <div class="hub-divider">Cierre del anexo</div>
+      <button class="hub-card" data-goto="ax"><span class="hub-card__n">F</span><span class="hub-card__l">De dónde sale cada cifra</span></button>
     </nav>
 
     <div class="hero__hint" data-animate data-delay="6">
@@ -688,58 +749,74 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
     <div class="acto" data-animate><span class="acto__n">02</span><span class="acto__l">La complejidad fue absorbida</span></div>
     <h2 class="claim" data-animate data-delay="1">La complejidad creció. El negocio no la sintió.</h2>
     <p class="lede" data-animate data-delay="2">
-      Entre 2021 y 2025 la demanda de servicio creció <strong>+164%</strong> &mdash; de 5,006 a
-      <strong>13,203 actividades al año</strong>. El equipo de TQS y FTE creció <strong>+20%</strong>:
-      de 10 a 12 consultores. Esa diferencia no desapareció. La absorbió la operación, y por eso el
-      usuario final nunca la vio. Hoy el servicio completo son <strong>20 personas</strong> en cuatro
-      frentes.
+      Entre 2021 y 2025 la demanda de servicio creció <strong>+164%</strong> y la plantilla apenas
+      <strong>+20%</strong>. Esa diferencia no desapareció: la absorbieron cuatro frentes que trabajan
+      como una sola operación. Son <strong>20 personas</strong>, y esto es lo que cada una sostiene.
     </p>
 
-    <div class="stats-grid stats-grid--4" data-animate data-delay="3">
-      <div class="stat"><div class="stat__n"><small>+</small><span data-count="164">164</span><small>%</small></div><div class="stat__l">Demanda de servicio</div><div class="stat__d">2021 &rarr; 2025</div></div>
-      <div class="stat"><div class="stat__n"><small>+</small><span data-count="20">20</span><small>%</small></div><div class="stat__l">Plantilla</div><div class="stat__d">De 10 a 12 consultores TQS + FTE</div></div>
-      <div class="stat"><div class="stat__n" data-count="1100">1,100</div><div class="stat__l">Actividades por consultor al año</div><div class="stat__d">TQS + FTE &nbsp;·&nbsp; en 2021 eran 500</div></div>
-      <div class="stat"><div class="stat__n">7&times;24</div><div class="stat__l">Cobertura continua</div><div class="stat__d">365 días, sin ventana de apagado</div></div>
+    <div class="frentes" data-animate data-delay="3">
+      <div class="frente" style="--fc:var(--coral)">
+        <div class="frente__n">TQS</div>
+        <div class="frente__v">4,922</div>
+        <div class="frente__u">Cambios y solicitudes gestionados<br>2026 · enero a agosto</div>
+        <div class="frente__t">La ingeniería del sistema</div>
+        <p class="frente__d">Dueño técnico de cada sistema: cambio productivo, monitoreo y causa raíz. <b>Cinco carteras nominadas</b> cubren 34 sistemas &mdash; ninguno queda huérfano.</p>
+        <div class="frente__f"><b>5</b> consultores</div>
+      </div>
+
+      <div class="frente" style="--fc:var(--blue-lite)">
+        <div class="frente__n">FTE</div>
+        <div class="frente__v">5,822</div>
+        <div class="frente__u">Actividades resueltas<br>2026 · enero a agosto</div>
+        <div class="frente__t">El día a día del negocio</div>
+        <p class="frente__d">Atiende lo planificado y lo que llega sin aviso. <b>Siete de cada diez</b> requerimientos son emergentes y aun así se cierran dentro del mes.</p>
+        <div class="frente__f"><b>6</b> consultores</div>
+      </div>
+
+      <div class="frente" style="--fc:var(--ok-lite)">
+        <div class="frente__n">Guardia ME</div>
+        <div class="frente__v">123,861</div>
+        <div class="frente__u">Eventos atendidos<br>Acumulado 2021 a 2024</div>
+        <div class="frente__t">El turno que no se apaga</div>
+        <p class="frente__d">Vigilancia <b>7&times;24 los 365 días</b>. Filtra el ruido operativo antes de que llegue a alguien del negocio y escala solo lo que de verdad lo requiere.</p>
+        <div class="frente__f"><b>5</b> consultores</div>
+      </div>
+
+      <div class="frente" style="--fc:var(--amber)">
+        <div class="frente__n">Archiving</div>
+        <div class="frente__v">591.3<small>TB</small></div>
+        <div class="frente__u">Datos archivados de las bases productivas<br>Histórico acumulado</div>
+        <div class="frente__t">El espacio que no se libera solo</div>
+        <p class="frente__d">Las bases de ECC crecen cada día. En el primer semestre de 2026 archivó <b>30.1 TB</b> sobre sistemas cuyo storage ya está al <b>99%</b> de ocupación.</p>
+        <div class="frente__f"><b>4</b> consultores</div>
+      </div>
     </div>
 
-    <div class="card" data-animate data-delay="4">
+    <div class="subhead" data-animate data-delay="4">Por qué hicieron falta los cuatro</div>
+    <div class="stats-grid stats-grid--sub" data-animate data-delay="4">
+      <div class="stat"><div class="stat__n"><small>+</small><span data-count="164">164</span><small>%</small></div><div class="stat__l">Demanda de servicio</div><div class="stat__d">De 5,006 a 13,203 actividades al año &nbsp;·&nbsp; 2021 &rarr; 2025</div></div>
+      <div class="stat"><div class="stat__n"><small>+</small><span data-count="20">20</span><small>%</small></div><div class="stat__l">Plantilla</div><div class="stat__d">De 10 a 12 consultores TQS + FTE en el mismo periodo</div></div>
+      <div class="stat"><div class="stat__n" data-count="1100">1,100</div><div class="stat__l">Actividades por consultor al año</div><div class="stat__d">TQS + FTE &nbsp;·&nbsp; en 2021 eran 500</div></div>
+    </div>
+
+    <div class="card" data-animate data-delay="5" style="margin-top:16px">
       <div class="card__t">La brecha entre lo que se pidió y lo que se contrató</div>
       <div class="card__sub">Índice base 100 en 2021 &mdash; demanda, plantilla y carga por persona</div>
-      <div id="aChGap"></div>
-      <div class="chart-legend">
-        <span><i style="background:#D14600"></i>Demanda de servicio</span>
-        <span><i style="background:#9BA0B0"></i>Consultores asignados</span>
-        <span><i style="background:#1F9D6B"></i>Carga por consultor</span>
-      </div>
-      <div class="card__read">Las dos líneas se separan en 2023 y no vuelven a juntarse. Todo lo que hay entre la naranja y la gris es complejidad que alguien absorbió sin que el negocio la viera ni la pagara.</div>
-    </div>
-
-    <div class="subhead" data-animate data-delay="5">Cómo se absorbe: cuatro frentes, una sola operación</div>
-    <div class="reasons" data-animate data-delay="5">
-      <div class="reason">
-        <div class="reason__n">TQS</div>
-        <div class="reason__t">La ingeniería del sistema</div>
-        <p class="reason__d">Gestiona el cambio productivo, vigila los sistemas y persigue la causa raíz. <b>Cinco carteras nominadas</b> cubren 34 sistemas &mdash; ninguno queda huérfano.</p>
-      </div>
-      <div class="reason">
-        <div class="reason__n">FTE</div>
-        <div class="reason__t">El día a día del negocio</div>
-        <p class="reason__d">Atiende lo planificado y lo que llega sin aviso. En 2026, <b>siete de cada diez requerimientos son emergentes</b> y aun así se resuelven dentro del mes.</p>
-      </div>
-      <div class="reason">
-        <div class="reason__n">GUARDIA ME</div>
-        <div class="reason__t">El turno que no se apaga</div>
-        <p class="reason__d">Vigilancia <b>7&times;24 los 365 días</b>. Filtra el ruido operativo antes de que llegue a alguien del negocio, y escala solo lo que de verdad lo requiere.</p>
-      </div>
-      <div class="reason">
-        <div class="reason__n">ARCHIVING</div>
-        <div class="reason__t">El espacio que no se agota solo</div>
-        <p class="reason__d">Las bases de ECC crecen cada día. En el primer semestre de 2026 se archivaron <b>30.1 TB</b> y se recuperaron <b>26.5 TB</b> por reorganización, sobre sistemas cuyo storage ya está al <b>99%</b> de ocupación.</p>
+      <div class="evid">
+        <div>
+          <div id="aChGap"></div>
+          <div class="chart-legend">
+            <span><i style="background:#D14600"></i>Demanda de servicio</span>
+            <span><i style="background:#9BA0B0"></i>Consultores asignados</span>
+            <span><i style="background:#1F9D6B"></i>Carga por consultor</span>
+          </div>
+        </div>
+        <div class="card__read">Las dos líneas se separan en 2023 y no vuelven a juntarse. Todo lo que hay entre la naranja y la gris es complejidad que absorbieron esos cuatro frentes &mdash; sin que el negocio la viera ni la pagara.</div>
       </div>
     </div>
 
     <p class="take" data-animate data-delay="6">Coordinar proveedores, gestionar cambios, administrar incidentes, orquestar especialistas y filtrar ruido. El usuario final no ve nada de eso &mdash; y precisamente ahí está el valor.</p>
-    <div class="src"><b>Fuente</b> Series consolidadas 2021&ndash;2025 de los reportes de cierre TQS, FTE y Guardia ME. Detalle por área en el <b>anexo A2 a A5</b>.</div>
+    <div class="src"><b>Fuente</b> Series consolidadas 2021&ndash;2025 de los reportes de cierre TQS, FTE y Guardia ME; consolidados TQS y FTE enero&ndash;agosto 2026; Status Archiving SAP ECC (junio 2026). Detalle por área en el <b>anexo A2 a A5</b>.</div>
   </div>
 </section>
 
@@ -814,7 +891,7 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
     </p>
 
     <p class="take" data-animate data-delay="6">Ninguna de estas seis líneas aparece en un tablero de negocio. Todas aparecerían el día que dejaran de cumplirse.</p>
-    <div class="src"><b>Fuente</b> Indicadores Estratégicos TQS (diciembre 2025 y agosto 2026), Actividades FTE, reportes de Guardia ME y Status Archiving SAP ECC (junio 2026). Detalle en el <b>anexo A5, A6, A7 y A8</b>.</div>
+    <div class="src"><b>Fuente</b> Indicadores Estratégicos TQS (diciembre 2025 y agosto 2026), Actividades FTE, reportes de Guardia ME y Status Archiving SAP ECC (junio 2026). Detalle en el <b>anexo A5, A6 y A7</b>, y en el <b>Acto 05</b>.</div>
   </div>
 </section>
 
@@ -880,6 +957,59 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
   </div>
 </section>
 
+<!-- =========================== ACTO 05 =========================== -->
+<section class="scene scene--tall" id="a6" data-chapter="Acto 05 · El crecimiento que no se ve">
+  <div class="scene__inner">
+    <div class="acto" data-animate><span class="acto__n">05</span><span class="acto__l">El crecimiento que no se ve</span></div>
+    <h2 class="claim claim--sm" data-animate data-delay="1">La base de datos que hoy no existe.</h2>
+    <p class="lede" data-animate data-delay="2">
+      Cada día ECC escribe datos que nunca se borran. Archiving los retira de la base productiva y los
+      conserva fuera de ella; la reorganización devuelve al storage el espacio que quedó libre. Desde
+      2014 se han retirado <strong>591 TB</strong>. La pregunta útil no es cuánto se archivó, sino
+      <strong>qué tamaño tendría hoy la base si eso nunca se hubiera hecho</strong>.
+    </p>
+
+    <div class="card" data-animate data-delay="3" style="margin-top:22px">
+      <div class="card__t">El tamaño que se evitó</div>
+      <div class="card__sub">Base de datos de RAP + RLP + RVP, junio 2026, contra el mismo dato sin archivar &mdash; en terabytes</div>
+      <div id="aChBd" style="max-width:820px;margin:0 auto"></div>
+      <div class="card__note">La barra roja suma al tamaño actual de la base todo lo archivado desde 2014. Los datos no se borraron: están fuera de la base productiva y siguen disponibles. La franja verde es el storage instalado hoy en los tres sistemas.</div>
+      <div class="card__read">La base productiva pesa <b>147 TB</b>. Sin trece años de archivado pesaría <b>739 TB</b>: <b>cinco veces más</b>, y <b>cuatro veces</b> el storage que hay instalado. No es que hubiera ido lenta &mdash; es que no habría cabido.</div>
+    </div>
+
+    <div class="stats-grid stats-grid--4 stats-grid--sub" data-animate data-delay="4">
+      <div class="stat"><div class="stat__n">591<small> TB</small></div><div class="stat__l">Retirados de la base</div><div class="stat__d">392.8 RAP + 198.5 RLP &nbsp;·&nbsp; acumulado desde 2014</div></div>
+      <div class="stat"><div class="stat__n"><span data-count="5">5</span><small>&times;</small></div><div class="stat__l">Tamaño que se evitó</div><div class="stat__d">739 TB contra los 147 TB reales de hoy</div></div>
+      <div class="stat"><div class="stat__n" data-count="99">99</div><div class="stat__l">% de storage ocupado</div><div class="stat__d">En RAP y en RLP &nbsp;·&nbsp; RVP al 20%</div></div>
+      <div class="stat"><div class="stat__n">30.1<small> TB</small></div><div class="stat__l">Archivados en 2026</div><div class="stat__d">Más 26.5 TB recuperados por reorganización &nbsp;·&nbsp; enero a junio</div></div>
+    </div>
+
+    <div class="grid2" data-animate data-delay="5" style="margin-top:18px">
+      <div class="card">
+        <div class="card__t">Trece años sin pausa</div>
+        <div class="card__sub">Terabytes retirados de la base productiva por año. *2026 cubre enero&ndash;junio.</div>
+        <div id="chArchYear"></div>
+        <div class="chart-legend">
+          <span><i style="background:#D14600"></i>RAP</span>
+          <span><i style="background:#4995FF"></i>RLP</span>
+        </div>
+        <div class="card__note">El bloque <b>&le;2014</b> agrupa todo lo archivado hasta ese año. Archivar y reorganizar miden cosas distintas y no se suman.</div>
+        <div class="card__read">No es un proyecto que se terminó: es una tarea que se repite cada año, y desde 2022 el ritmo anual está por encima de los <b>45 TB</b>. El día que se detiene, la curva del tamaño de la base vuelve a subir sin freno.</div>
+      </div>
+      <div class="card">
+        <div class="card__t">Los dos sistemas críticos ya no tienen holgura</div>
+        <div class="card__sub">Uso de base de datos y ocupación de storage por sistema, junio 2026</div>
+        <div id="chArchDb" class="meter"></div>
+        <div class="card__note">Cada sistema tiene dos barras: la naranja es cuánto de la base de datos está ocupado; la azul, cuánto del storage que la contiene está asignado.</div>
+        <div class="card__read">RAP y RLP están al límite: la base al <b>87%</b> y <b>86%</b>, y el storage al <b>99%</b> en ambos. En los dos sistemas que mueven el negocio, el único margen disponible es el que libera el archivado de cada mes.</div>
+      </div>
+    </div>
+
+    <p class="take" data-animate data-delay="6">Archiving no genera tickets ni aparece en un tablero de servicio. Se nota exactamente una vez: el día que una base productiva se queda sin espacio, con la operación encima.</p>
+    <div class="src"><b>Fuente</b> «Status Archiving SAP ECC (RAP, RLP, RVP)» &mdash; Estadísticas Coca-Cola FEMSA, Archiving, Base de Datos y Reorganización, junio 2026. Cifras tomadas directamente del reporte.</div>
+  </div>
+</section>
+
 <!-- ==================== CIERRE ==================== -->
 <section class="scene scene--dark scene--tall finale" id="a5" data-chapter="Lo que está en juego" data-dark>
   <div class="scene__inner">
@@ -929,31 +1059,6 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
 </section>
 
 <!-- ==================== ANEXO · PORTADA ==================== -->
-<section class="scene scene--tall" id="ax" data-chapter="Anexo · Evidencia">
-  <div class="scene__inner">
-    <div class="acto" data-animate><span class="acto__n">A</span><span class="acto__l">Anexo · evidencia y detalle</span></div>
-    <h2 class="claim claim--sm" data-animate data-delay="1">De dónde sale cada cifra.</h2>
-    <p class="lede" data-animate data-delay="2">
-      Los cuatro actos anteriores son la conclusión. Lo que sigue es el respaldo: la serie completa
-      por área, mes a mes, con la fuente citada en cada bloque. Está aquí para responder una pregunta
-      concreta, no para leerse de corrido.
-    </p>
-
-    <div class="anexo-note" data-animate data-delay="3">
-      <b>A1 · El alcance real</b> — inventario de instancias, hosts, tecnologías y catálogo de aplicaciones.<br>
-      <b>A2 · Cuatro equipos</b> — cómo se reparte el servicio entre TQS, FTE, Guardia ME y Archiving.<br>
-      <b>A3 · TQS</b> — volumen anual y mensual, 2021 a 2026, y las cinco carteras nominadas.<br>
-      <b>A4 · FTE</b> — actividad, mezcla de trabajo y comparación 2025 contra 2026.<br>
-      <b>A5 · Guardia ME</b> — cobertura 7&times;24, alertas y checklists.<br>
-      <b>A6 · Críticos y causa raíz</b> — incidentes críticos y cobertura de RCA.<br>
-      <b>A7 · 2026 en curso</b> — consolidado TQS + FTE del año abierto.<br>
-      <b>A8 · Archiving</b> — ocupación de base de datos y storage, y volumen archivado por año.
-    </div>
-
-    <p class="take" data-animate data-delay="4">Toda cifra publicada aquí se cruzó contra el total anual de su propia fuente. Donde una serie cambió de criterio entre años, se dice en el bloque correspondiente y no se compara.</p>
-  </div>
-</section>
-
 <!-- ==================== ANEXO A1 ==================== -->
 <section class="scene scene--tall" id="c1" data-chapter="Anexo · El alcance real">
   <div class="scene__inner">
@@ -1369,7 +1474,7 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
     <div class="pending" data-animate data-delay="5">
       <b>Pendiente de incorporar</b>
       La serie <b>Guardia ME 2025&ndash;2026</b>. TQS y FTE ya están al día hasta agosto de 2026 y
-      el detalle de <b>Archiving</b> está en el anexo A8, con corte a junio de 2026.
+      el detalle de <b>Archiving</b> está en el <b>Acto 05</b>, con corte a junio de 2026.
     </div>
 
     <p class="take" data-animate data-delay="6">El año récord no fue el techo: fue la nueva línea base. Y se está superando con la misma plantilla.</p>
@@ -1380,62 +1485,31 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
 
 
 <!-- ==================== ANEXO A10 · ARCHIVING ==================== -->
-<section class="scene scene--tall" id="c10" data-chapter="Anexo · Archiving">
+</main>
+
+<section class="scene scene--tall" id="ax" data-chapter="Fuentes · De dónde sale cada cifra">
   <div class="scene__inner">
-    <div class="kicker" data-animate>Anexo A8 · Archiving y reorganización</div>
-    <h2 class="claim claim--sm" data-animate data-delay="1">Las bases de ECC no dejan de crecer.</h2>
+    <div class="acto" data-animate><span class="acto__n">A</span><span class="acto__l">Anexo · evidencia y detalle</span></div>
+    <h2 class="claim claim--sm" data-animate data-delay="1">De dónde sale cada cifra.</h2>
     <p class="lede" data-animate data-delay="2">
-      Archiving mueve datos históricos fuera de la base productiva; la reorganización recupera el
-      espacio liberado. Son dos medidas distintas y no se suman. Los sistemas bajo este alcance son
-      <strong>RAP, RLP y RVP</strong>. Corte de la información: <strong>junio de 2026</strong>.
+      Los cinco actos son la conclusión; los siete anexos anteriores son el respaldo. Esta es la
+      ficha de las fuentes: qué contiene cada anexo y con qué criterio se construyó cada cifra.
     </p>
 
-    <div class="stats-grid stats-grid--4" data-animate data-delay="3">
-      <div class="stat"><div class="stat__n">30.1<small> TB</small></div><div class="stat__l">Archivados en 2026</div><div class="stat__d">18.0 RAP + 12.1 RLP · enero a junio</div></div>
-      <div class="stat"><div class="stat__n">26.5<small> TB</small></div><div class="stat__l">Recuperados por reorganización</div><div class="stat__d">9.0 RAP + 17.5 RLP · enero a junio</div></div>
-      <div class="stat"><div class="stat__n">591<small> TB</small></div><div class="stat__l">Archivados desde el inicio</div><div class="stat__d">392.8 RAP + 198.5 RLP, acumulado histórico</div></div>
-      <div class="stat"><div class="stat__n" data-count="99">99</div><div class="stat__l">% de ocupación de storage</div><div class="stat__d">En RAP y en RLP · RVP al 20%</div></div>
+    <div class="anexo-note" data-animate data-delay="3">
+      <b>A1 · El alcance real</b> — inventario de instancias, hosts, tecnologías y catálogo de aplicaciones.<br>
+      <b>A2 · Cuatro equipos</b> — cómo se reparte el servicio entre TQS, FTE, Guardia ME y Archiving.<br>
+      <b>A3 · TQS</b> — volumen anual y mensual, 2021 a 2026, y las cinco carteras nominadas.<br>
+      <b>A4 · FTE</b> — actividad, mezcla de trabajo y comparación 2025 contra 2026.<br>
+      <b>A5 · Guardia ME</b> — cobertura 7&times;24, alertas y checklists.<br>
+      <b>A6 · Críticos y causa raíz</b> — incidentes críticos y cobertura de RCA.<br>
+      <b>A7 · 2026 en curso</b> — consolidado TQS + FTE del año abierto.<br>
+      <b>Archiving</b> — su detalle completo está en el <b>Acto 05</b>, no en el anexo.
     </div>
 
-    <div class="grid2" data-animate data-delay="4">
-      <div class="card">
-        <div class="card__t">Volumen archivado por año</div>
-        <div class="card__sub">Terabytes retirados de la base productiva. *2026 cubre enero&ndash;junio.</div>
-        <div id="chArchYear"></div>
-        <div class="chart-legend">
-          <span><i style="background:#D14600"></i>RAP</span>
-          <span><i style="background:#4995FF"></i>RLP</span>
-        </div>
-        <div class="card__note">El bloque <b>&le;2014</b> agrupa todo lo archivado hasta ese año; 2026 cubre solo el primer semestre.</div>
-        <div class="card__read">Trece años de archivado continuo: <b>591 TB</b> retirados de las bases de ECC. No es un proyecto que se terminó, es una tarea que se repite cada año — y desde 2022 el ritmo anual está por encima de los 45 TB.</div>
-      </div>
-      <div class="card">
-        <div class="card__t">El trabajo de capacidad del primer semestre</div>
-        <div class="card__sub">Terabytes retirados de la base y espacio recuperado, enero&ndash;junio 2026</div>
-        <div id="chArchWork" style="max-width:560px;margin:0 auto"></div>
-        <div class="chart-legend">
-          <span><i style="background:#D14600"></i>Datos archivados</span>
-          <span><i style="background:#1F9D6B"></i>Espacio recuperado</span>
-        </div>
-        <div class="card__note">Son dos medidas distintas y no se suman: archivar retira datos de la base; reorganizar devuelve al storage el espacio que quedó libre.</div>
-        <div class="card__read">En seis meses se retiraron <b>30.1 TB</b> de las bases productivas y se recuperaron <b>26.5 TB</b> de espacio. Sin ese trabajo sostenido, RAP y RLP seguirían creciendo sobre un storage que ya está al 99%.</div>
-      </div>
-    </div>
-
-    <div class="card" data-animate data-delay="5" style="margin-top:18px">
-      <div class="card__t">Los dos sistemas críticos ya no tienen holgura</div>
-      <div class="card__sub">Uso de base de datos y ocupación de storage por sistema, junio 2026</div>
-      <div id="chArchDb" class="meter" style="max-width:640px;margin:0 auto"></div>
-      <div class="card__note">Cada sistema tiene dos barras: la naranja es cuánto de la base de datos está ocupado; la azul, cuánto del storage que la contiene está asignado.</div>
-      <div class="card__read">RAP y RLP están al límite: la base al <b>87%</b> y <b>86%</b>, y el storage al <b>99%</b> en ambos. RVP todavía tiene aire. Traducido: en los dos sistemas que mueven el negocio, el único margen disponible es el que libera el archivado de cada mes.</div>
-    </div>
-
-    <p class="take" data-animate data-delay="6">Archiving no genera tickets ni aparece en un tablero de servicio. Se nota exactamente una vez: el día que una base productiva se queda sin espacio.</p>
-    <div class="src"><b>Fuente</b> «Status Archiving SAP ECC (RAP, RLP, RVP)» &mdash; Estadísticas Coca-Cola FEMSA, Archiving, Base de Datos y Reorganización, junio 2026. Cifras tomadas directamente del reporte; no se suman archivado y reorganización por medir cosas distintas.</div>
+    <p class="take" data-animate data-delay="4">Toda cifra publicada aquí se cruzó contra el total anual de su propia fuente. Donde una serie cambió de criterio entre años, se dice en el bloque correspondiente y no se compara.</p>
   </div>
 </section>
-
-</main>
 <script>
 /* ============================================================
    DATOS — todos los valores provienen de los reportes internos
@@ -1842,7 +1916,7 @@ window.OPS = {
     { n: 'Demanda de servicio', c: 'var(--rust)', v: actTot.map((v) => (v / base.a) * 100) },
     { n: 'Consultores asignados', c: '#9BA0B0', v: cons.map((v) => (v / base.c) * 100) },
     { n: 'Carga por consultor', c: 'var(--ok)', v: actTot.map((v, i) => ((v / cons[i]) / base.p) * 100) }
-  ], { h: 260 }));
+  ], { h: 190 }));
 
   /* C8 — línea de tiempo ene-2025 a ago-2026 */
   const ini = ['E', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'];
@@ -1860,8 +1934,31 @@ window.OPS = {
     { n: 'RCA entregados', c: 'var(--ok)', v: [sum(D.tqs2025.rca), sum(D.tqs2026.rca)] }
   ], { h: 230, bw: 64 }));
 
-  /* C9 */
-  /* Anexo A10 — Archiving */
+  /* ---------- el tamano evitado: hoy contra el contrafactual ---------- */
+  function bdChart(hoy, sinArch, stg) {
+    const W = 700, padL = 215, padR = 40, H = 146;
+    const track = W - padL - padR, max = 800;
+    const rows = [
+      { k: 'Base de datos hoy', d: 'Con el archivado al día', v: hoy, c: 'var(--ok)' },
+      { k: 'Sin el trabajo de archivado', d: 'Los mismos datos, nunca retirados', v: sinArch, c: 'var(--crit)' }
+    ];
+    const xb = padL + (stg / max) * track;
+    let s = svgOpen(W, H);
+    s += '<rect x="' + padL + '" y="10" width="' + (xb - padL).toFixed(1) + '" height="94" rx="5" fill="var(--ok)" opacity=".16"/>';
+    rows.forEach(function (r, i) {
+      const y = 18 + i * 52, bw = (r.v / max) * track;
+      s += '<text class="ax-label" x="' + (padL - 14) + '" y="' + (y + 13) + '" text-anchor="end" style="font-size:12px;font-weight:700;fill:var(--ink)">' + r.k + '</text>';
+      s += '<text class="ax-label" x="' + (padL - 14) + '" y="' + (y + 27) + '" text-anchor="end" style="font-size:9.5px">' + r.d + '</text>';
+      s += '<rect class="bar-h" x="' + padL + '" y="' + y + '" width="' + bw.toFixed(1) + '" height="24" rx="5" fill="' + r.c + '" style="transition-delay:' + (i * 240) + 'ms"/>';
+      s += '<text class="val-label" x="' + (padL + bw - 10) + '" y="' + (y + 17) + '" text-anchor="end" style="font-size:13.5px;fill:#fff">' + r.v.toFixed(0) + ' TB</text>';
+    });
+    s += '<line x1="' + xb.toFixed(1) + '" y1="10" x2="' + xb.toFixed(1) + '" y2="104" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="5 4" opacity=".42"/>';
+    s += '<text class="ax-label" x="' + xb.toFixed(1) + '" y="120" text-anchor="middle">Storage instalado</text>';
+    s += '<text class="ax-label" x="' + xb.toFixed(1) + '" y="133" text-anchor="middle" style="font-weight:700;fill:var(--ink)">' + stg.toFixed(0) + ' TB</text>';
+    return s + '</svg>';
+  }
+
+  /* Acto 05 — Archiving */
   (function () {
     const AR = D.archiving;
     put('chArchYear', vBars(AR.anios, [
@@ -1869,10 +1966,11 @@ window.OPS = {
       { n: 'RLP', c: 'var(--blue-lite)', v: AR.rlp }
     ], { h: 250, bw: 24, showTotal: false }));
 
-    put('chArchWork', gBars(['RAP', 'RLP'], [
-      { n: 'Datos archivados', c: 'var(--rust)', v: [AR.rap[AR.rap.length - 1], AR.rlp[AR.rlp.length - 1]] },
-      { n: 'Espacio recuperado', c: 'var(--ok)', v: [AR.reorg2026.rap, AR.reorg2026.rlp] }
-    ], { h: 230, bw: 62 }));
+    /* El contrafactual: el tamano que tendria la base sin archivar */
+    const bdHoy = AR.db.reduce(function (a, r) { return a + r.usada; }, 0);
+    const bdArch = sum(AR.rap) + sum(AR.rlp);
+    const bdStg = AR.db.reduce(function (a, r) { return a + r.stg; }, 0);
+    put('aChBd', bdChart(bdHoy, bdHoy + bdArch, bdStg));
 
     let m = '';
     AR.db.forEach(function (r) {
