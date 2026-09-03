@@ -674,7 +674,9 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
       RFCs, solicitudes, KITs e incidentes. El equipo TQS pasó de <strong>2,052 actividades
       en 2021</strong> a <strong>6,817 en 2025</strong>: <strong>+232%</strong>. Solo entre
       2024 y 2025 el crecimiento fue de <strong>+26%</strong> — y el salto grande está en
-      Solicitudes/KIT/Incidentes, que pasaron de 743 a 5,001.
+      Solicitudes/KIT/Incidentes, que pasaron de 743 a 5,001. En 2026, con ocho meses cerrados,
+      el equipo lleva <strong>4,922 actividades</strong>: <strong>615 al mes</strong> contra las
+      <strong>568</strong> del promedio del año récord.
     </p>
 
     <div class="stats-grid stats-grid--4" data-animate data-delay="3">
@@ -695,10 +697,38 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
         </div>
       </div>
       <div class="card">
-        <div class="card__t">2025 mes a mes</div>
+        <div class="card__t">Ritmo mensual: el cambio controlado es el que crece</div>
+        <div class="card__sub">Promedio de actividades al mes &mdash; la forma de comparar un año cerrado con uno en curso</div>
+        <div id="chTqsRitmo"></div>
+        <div class="chart-legend">
+          <span><i style="background:#004AAC"></i>RFC por mes</span>
+          <span><i style="background:#FF7E51"></i>Solin / KIT / INC por mes</span>
+        </div>
+        <div class="card__note">RFCs: de 151 a 221 al mes (<b>+46%</b>). Solin/KIT/INC: de 417 a 394 (<b>&minus;6%</b>). Lo que crece es la ingeniería planificada, no el trabajo reactivo.</div>
+      </div>
+    </div>
+
+    <div class="subhead" data-animate data-delay="4">Mes a mes, a la misma escala</div>
+    <div class="grid2" data-animate data-delay="4" style="margin-top:12px">
+      <div class="card">
+        <div class="card__t">2025 · doce meses</div>
         <div class="card__sub">Volumen mensual — el servicio no tiene temporada baja</div>
         <div id="chTqsMonth"></div>
+        <div class="chart-legend">
+          <span><i style="background:#004AAC"></i>RFC</span>
+          <span><i style="background:#FF7E51"></i>Solin / KIT / INC</span>
+        </div>
         <div class="card__note">Pico en agosto (662 actividades). Mínimo en enero (398). Ningún mes por debajo de 380.</div>
+      </div>
+      <div class="card">
+        <div class="card__t">2026 · enero a agosto</div>
+        <div class="card__sub">Mismas categorías y misma escala vertical que la gráfica de 2025</div>
+        <div id="ch2026"></div>
+        <div class="chart-legend">
+          <span><i style="background:#004AAC"></i>RFC</span>
+          <span><i style="background:#FF7E51"></i>Solin / KIT / INC</span>
+        </div>
+        <div class="card__note">Julio es el mes más alto en RFCs (274); enero concentra el pico de Solin/KIT/INC (566) por el arranque de año. Promedio mensual 2026: <b>615 actividades</b>, 47 más que en 2025.</div>
       </div>
     </div>
 
@@ -963,23 +993,11 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
       <div class="card__note">De <b>1,241 actividades en enero</b> a <b>1,583 en julio</b>. La carga no solo está por encima del año récord: crece dentro del propio año. Y los 304 monitores TQS del periodo se ejecutaron completos, 38 cada mes.</div>
     </div>
 
-    <div class="grid2" data-animate data-delay="4" style="margin-top:18px">
-      <div class="card">
-        <div class="card__t">Consolidado TQS · enero &ndash; agosto 2026</div>
-        <div class="card__sub">RFCs y Solicitudes/KIT/Incidentes por mes</div>
-        <div id="ch2026"></div>
-        <div class="chart-legend">
-          <span><i style="background:#004AAC"></i>RFC</span>
-          <span><i style="background:#FF7E51"></i>Solin / KIT / INC</span>
-        </div>
-        <div class="card__note">Julio es el mes más alto en RFCs (274). Enero concentra el pico de Solin/KIT/INC (566) por el arranque de año.</div>
-      </div>
-      <div class="card">
-        <div class="card__t">Reparto de la carga entre carteras</div>
-        <div class="card__sub">Actividades acumuladas por consultor TQS, ene &ndash; ago 2026</div>
-        <div id="chCarteras2026"></div>
-        <div class="card__note">Ninguna cartera baja de 600 actividades en ocho meses. La distribución es pareja: no hay un solo punto de concentración de riesgo.</div>
-      </div>
+    <div class="card" data-animate data-delay="4" style="margin-top:18px">
+      <div class="card__t">Reparto de la carga entre carteras</div>
+      <div class="card__sub">Actividades acumuladas por consultor TQS, ene &ndash; ago 2026</div>
+      <div id="chCarteras2026" style="max-width:780px;margin:0 auto"></div>
+      <div class="card__note">Ninguna cartera baja de 600 actividades en ocho meses. La distribución es pareja: no hay un solo punto de concentración de riesgo. El detalle mes a mes de TQS y de FTE está en los capítulos 04 y 05.</div>
     </div>
 
     <div class="pending" data-animate data-delay="5">
@@ -1362,10 +1380,23 @@ window.OPS = {
     { n: 'RFC', c: 'var(--blue)', v: D.tqsRfc.concat([D.tqs2026Anual.rfc]) },
     { n: 'Solin / KIT / INC', c: 'var(--coral)', v: D.tqsSolin.concat([D.tqs2026Anual.solin]) }
   ], { h: 235, bw: 38 }));
+  const tqsMes25 = D.tqs2025.rfc.map((v, i) => v + D.tqs2025.solin[i]);
+  const tqsMes26 = D.tqs2026.rfc.map((v, i) => v + D.tqs2026.solin[i]);
+  const tqsMax = Math.max.apply(null, tqsMes25.concat(tqsMes26));
   put('chTqsMonth', vBars(D.meses, [
     { n: 'RFC', c: 'var(--blue)', v: D.tqs2025.rfc },
     { n: 'Solin / KIT / INC', c: 'var(--coral)', v: D.tqs2025.solin }
-  ], { h: 235, bw: 26 }));
+  ], { h: 235, bw: 26, max: tqsMax }));
+  put('ch2026', vBars(D.meses.slice(0, 8), [
+    { n: 'RFC', c: 'var(--blue)', v: D.tqs2026.rfc },
+    { n: 'Solin / KIT / INC', c: 'var(--coral)', v: D.tqs2026.solin }
+  ], { h: 235, bw: 34, max: tqsMax }));
+  put('chTqsRitmo', gBars(['2025 · 12 meses', '2026 · ene a ago'], [
+    { n: 'RFC por mes', c: 'var(--blue)',
+      v: [Math.round(sum(D.tqs2025.rfc) / 12), Math.round(D.tqs2026Anual.rfc / 8)] },
+    { n: 'Solin / KIT / INC por mes', c: 'var(--coral)',
+      v: [Math.round(sum(D.tqs2025.solin) / 12), Math.round(D.tqs2026Anual.solin / 8)] }
+  ], { h: 210, bw: 58 }));
 
   put('tqsFolio', D.carteras.map((c) =>
     '<div class="folio__c"><div class="folio__r">Cartera TQS</div>' +
@@ -1442,10 +1473,6 @@ window.OPS = {
   ], { h: 210, bw: 58 }));
 
   /* C9 */
-  put('ch2026', vBars(D.meses.slice(0, 8), [
-    { n: 'RFC', c: 'var(--blue)', v: D.tqs2026.rfc },
-    { n: 'Solin / KIT / INC', c: 'var(--coral)', v: D.tqs2026.solin }
-  ], { h: 235, bw: 34 }));
   put('chTqsFte2026', vBars(D.meses.slice(0, 8), [
     { n: 'TQS', c: 'var(--rust)', v: D.tqs2026.rfc.map((v, i) => v + D.tqs2026.solin[i]) },
     { n: 'FTE', c: 'var(--blue-lite)',
