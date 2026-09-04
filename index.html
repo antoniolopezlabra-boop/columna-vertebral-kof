@@ -1380,7 +1380,7 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
           <div class="stat"><div class="stat__n" data-count="123861">123,861</div><div class="stat__l">Eventos atendidos</div><div class="stat__d">Acumulado 2021&ndash;2024</div></div>
           <div class="stat"><div class="stat__n" data-count="3579">3,579</div><div class="stat__l">Alertas Dynatrace en 2026</div><div class="stat__d">Enero a agosto &nbsp;·&nbsp; SAP en Azure</div></div>
           <div class="stat"><div class="stat__n">99.8<small>%</small></div><div class="stat__l">Alertas cerradas</div><div class="stat__d">3,573 de 3,579 &nbsp;·&nbsp; ninguna quedó abierta sin dueño</div></div>
-          <div class="stat"><div class="stat__n" data-count="2145">2,145</div><div class="stat__l">Checklists al mes</div><div class="stat__d">Promedio enero&ndash;abril 2026 &nbsp;·&nbsp; 8,578 en el cuatrimestre</div></div>
+          <div class="stat"><div class="stat__n" data-count="2385">2,385</div><div class="stat__l">Checklists al mes</div><div class="stat__d">Promedio enero&ndash;agosto 2026 &nbsp;·&nbsp; 19,080 en el periodo</div></div>
         </div>
       </div>
     </div>
@@ -1432,6 +1432,13 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
     </div>
 
     <div class="card" data-animate data-delay="6" style="margin-top:20px">
+      <div class="card__t">La revisión manual no bajó: subió</div>
+      <div class="card__sub">Checklists de rutina ejecutados por mes, enero a agosto de 2026</div>
+      <div id="chCheck26" style="max-width:820px;margin:0 auto"></div>
+      <div class="card__read">Es la otra mitad de la historia de las alertas. Mientras el ruido automático se apagaba, la revisión hecha a mano creció: el promedio pasó de <b>2,145 checklists al mes</b> en el primer cuatrimestre a <b>2,626</b> en el segundo, y agosto cerró en <b>3,122</b>, el mes más alto del año. Menos alertas no fue menos vigilancia &mdash; fue vigilancia mejor dirigida. En agosto el reparto fue <b>836</b> revisiones de queues transversales, <b>530</b> de PI, <b>475</b> de MIIs, <b>465</b> de BODS, <b>461</b> de ECC y <b>315</b> de S4.</div>
+    </div>
+
+    <div class="card" data-animate data-delay="6" style="margin-top:20px">
       <div class="card__t">Alertas y checklists por año</div>
       <div class="card__sub">Guardia ME (registrada históricamente como «Guardia BODS»), 2021 &rarr; 2024</div>
       <div id="chGuardia"></div>
@@ -1444,14 +1451,13 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
 
     <div class="pending" data-animate data-delay="6">
       <b>Pendiente de incorporar</b>
-      Falta el cierre de <b>2025</b> de Guardia ME &mdash; la serie histórica salta de 2024 a 2026 &mdash;
-      y los checklists de <b>mayo a agosto de 2026</b>, que hoy llegan solo hasta abril.
+      Falta el cierre de <b>2025</b> de Guardia ME: la serie histórica salta de 2024 a 2026.
       Las series de 2021&ndash;2024 y la de 2026 provienen de herramientas distintas
       (Solman/Focus y Dynatrace SAP Azure), por lo que se presentan por separado y no se suman.
     </div>
 
     <p class="take" data-animate data-delay="6">Es el capítulo que menos se ve en un comité y el que más se nota cuando falta: es la razón por la que un incidente de madrugada no llega a ser una parada de planta a las 7 de la mañana.</p>
-    <div class="src"><b>Fuente</b> «Filtro para indicadores Dynatrace.xlsx» · hoja «Analisis ajustes alertas» &nbsp;·&nbsp; «Indicadores de Agosto Dynatrace SAP Azure.pptx» &nbsp;·&nbsp; «Dynatrace KOF · Resultados Mayo 2026.pptx» &nbsp;·&nbsp; «Indicadores de CheckList Guardia ME.pptx» (abril 2026) &nbsp;·&nbsp; «Consolidado de sistemas KOF · marzo 2026.xlsx» &nbsp;·&nbsp; Inventario Operaciones 2025 · hoja «Indicadores Operación».</div>
+    <div class="src"><b>Fuente</b> «Filtro para indicadores Dynatrace.xlsx» · hoja «Analisis ajustes alertas» &nbsp;·&nbsp; «Indicadores de Agosto Dynatrace SAP Azure.pptx» &nbsp;·&nbsp; «Dynatrace KOF · Resultados Mayo 2026.pptx» &nbsp;·&nbsp; «Indicadores de CheckList Guardia ME AGOSTO.pptx» (enero–agosto 2026) &nbsp;·&nbsp; «Consolidado de sistemas KOF · marzo 2026.xlsx» &nbsp;·&nbsp; Inventario Operaciones 2025 · hoja «Indicadores Operación».</div>
   </div>
 </section>
 
@@ -1547,8 +1553,8 @@ body.on-dark .rail__label { color: var(--d-ink-faint); }
     <div class="pending" data-animate data-delay="5">
       <b>Pendiente de incorporar</b>
       El cierre <b>2025 de Guardia ME</b>: su serie histórica llega a 2024 y retoma en 2026.
-      TQS y FTE están al día hasta agosto de 2026, <b>Guardia ME</b> hasta agosto en alertas
-      y hasta abril en checklists (<b>anexo A5</b>), y <b>Archiving</b> hasta julio (<b>Acto 05</b>).
+      TQS, FTE y <b>Guardia ME</b> están al día hasta <b>agosto de 2026</b> &mdash; alertas y
+      checklists (<b>anexo A5</b>) &mdash; y <b>Archiving</b> hasta julio (<b>Acto 05</b>).
     </div>
 
     <p class="take" data-animate data-delay="6">El año récord no fue el techo: fue la nueva línea base. Y se está superando con la misma plantilla.</p>
@@ -1653,8 +1659,24 @@ window.OPS = {
     cerradas: 3573
   },
 
-  /* «Indicadores DE CheckList Guardia ME.pptx» — corte a abril 2026 */
-  meCheck2026: { meses: ['Ene', 'Feb', 'Mar', 'Abr'], v: [2434, 2145, 2308, 1691] },
+  /* «Indicadores DE CheckList Guardia ME AGOSTO.pptx», hoja historica del
+     grafico 3D: doce plataformas por mes. Los cuatro primeros meses coinciden
+     exacto con el corte de abril, por eso la serie se toma completa.
+     Total ene-ago = 19,080 checklists (2,385 al mes). */
+  meCheck2026: {
+    meses: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago'],
+    v: [2434, 2145, 2308, 1691, 2774, 2039, 2567, 3122]
+  },
+
+  /* Reparto de agosto por plataforma, del mismo reporte */
+  meCheckPlat: [
+    { k: 'Queues ECC/CRM/PI/BW/S4', v: 836 }, { k: 'PI',   v: 530 },
+    { k: 'MIIs',                    v: 475 }, { k: 'BODS', v: 465 },
+    { k: 'ECC',                     v: 461 }, { k: 'S4',   v: 315 },
+    { k: 'ECC - MIIs',              v:  21 }, { k: 'CRM',  v:  10 },
+    { k: 'CPROC',                   v:   5 }, { k: 'GRC',  v:   2 },
+    { k: 'PCM',                     v:   2 }
+  ],
 
   /* «Consolidado de sistemas KOF Actualizado Marzo 2026.xlsx» */
   parqueME: { abap: 60, java: 64, hostFisico: 340, hostVirtual: 280 },
@@ -2005,6 +2027,10 @@ window.OPS = {
     { n: 'Caída de uso de aplicación', c: 'var(--blue-lite)', v: D.dyn2026.uso },
     { n: 'Otras', c: '#6C7385', v: D.dyn2026.otras }
   ], { h: 268, bw: 34 }));
+
+  put('chCheck26', vBars(D.meCheck2026.meses,
+    [{ n: 'Checklists ejecutados', c: 'var(--ok-lite)', v: D.meCheck2026.v }],
+    { h: 250, bw: 34 }));
 
   put('chGuardia', gBars(['2021', '2022', '2023', '2024'], [
     { n: 'Alertas', c: 'var(--coral)', v: D.meAlertas },
